@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="create-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Create New Order</h1>
+                        <p class="page-subtitle">Manually create a new order for a customer</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Orders</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Form -->
+            <div class="form-container">
+                <form id="orderCreateForm" class="create-form">
+                    <div class="form-grid">
+                        <!-- Customer Information -->
+                        <div class="form-section">
+                            <h3>Customer Information</h3>
+                            <div class="form-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="customerSearch">Search Customer *</label>
+                                        <div class="customer-search-box">
+                                            <input type="text" id="customerSearch" name="customerSearch" class="form-input" required placeholder="Search by name, email, or phone">
+                                            <button type="button" class="btn btn-outline btn-sm">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="orderSource">Order Source</label>
+                                        <select id="orderSource" name="orderSource" class="form-select">
+                                            <option value="admin">Admin Panel</option>
+                                            <option value="website">Website</option>
+                                            <option value="mobile">Mobile App</option>
+                                            <option value="phone">Phone Order</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Selected Customer Display -->
+                                <div class="selected-customer" style="display: none;">
+                                    <div class="customer-card">
+                                        <div class="customer-avatar">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b68b2500?w=64&h=64&fit=crop&crop=face" alt="Customer">
+                                        </div>
+                                        <div class="customer-info">
+                                            <h4>Sarah Johnson</h4>
+                                            <p>sarah@example.com</p>
+                                            <span class="badge badge-success">Verified</span>
+                                        </div>
+                                        <button type="button" class="btn btn-text btn-sm">Change</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Items -->
+                        <div class="form-section">
+                            <h3>Order Items</h3>
+                            <div class="form-content">
+                                <div class="order-items-header">
+                                    <button type="button" class="btn btn-primary btn-sm" id="addItemBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Product
+                                    </button>
+                                </div>
+
+                                <div class="order-items-list" id="orderItemsList">
+                                    <!-- Order items will be added here dynamically -->
+                                </div>
+
+                                <div class="order-totals">
+                                    <div class="totals-row">
+                                        <span>Subtotal:</span>
+                                        <span id="subtotal">$0.00</span>
+                                    </div>
+                                    <div class="totals-row">
+                                        <span>Tax:</span>
+                                        <span id="tax">$0.00</span>
+                                    </div>
+                                    <div class="totals-row">
+                                        <span>Shipping:</span>
+                                        <span id="shipping">$0.00</span>
+                                    </div>
+                                    <div class="totals-row total">
+                                        <span>Total:</span>
+                                        <span id="total">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Information -->
+                        <div class="form-section">
+                            <h3>Shipping Information</h3>
+                            <div class="form-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="shippingMethod">Shipping Method *</label>
+                                        <select id="shippingMethod" name="shippingMethod" class="form-select" required>
+                                            <option value="">Select Shipping Method</option>
+                                            <option value="standard">Standard Shipping (5-7 days) - $5.99</option>
+                                            <option value="express">Express Shipping (2-3 days) - $12.99</option>
+                                            <option value="overnight">Overnight Shipping - $24.99</option>
+                                            <option value="pickup">Store Pickup - Free</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="estimatedDelivery">Estimated Delivery</label>
+                                        <input type="date" id="estimatedDelivery" name="estimatedDelivery" class="form-input">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="shippingAddress">Shipping Address *</label>
+                                    <textarea id="shippingAddress" name="shippingAddress" class="form-textarea" rows="3" required placeholder="Enter complete shipping address"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="shippingNotes">Shipping Notes</label>
+                                    <textarea id="shippingNotes" name="shippingNotes" class="form-textarea" rows="2" placeholder="Special delivery instructions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="form-section">
+                            <h3>Payment Information</h3>
+                            <div class="form-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="paymentMethod">Payment Method *</label>
+                                        <select id="paymentMethod" name="paymentMethod" class="form-select" required>
+                                            <option value="">Select Payment Method</option>
+                                            <option value="credit_card">Credit Card</option>
+                                            <option value="paypal">PayPal</option>
+                                            <option value="bank_transfer">Bank Transfer</option>
+                                            <option value="cash_on_delivery">Cash on Delivery</option>
+                                            <option value="store_credit">Store Credit</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="paymentStatus">Payment Status *</label>
+                                        <select id="paymentStatus" name="paymentStatus" class="form-select" required>
+                                            <option value="pending">Pending</option>
+                                            <option value="authorized">Authorized</option>
+                                            <option value="paid" selected>Paid</option>
+                                            <option value="partially_paid">Partially Paid</option>
+                                            <option value="refunded">Refunded</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="paymentNotes">Payment Notes</label>
+                                    <textarea id="paymentNotes" name="paymentNotes" class="form-textarea" rows="2" placeholder="Payment references or notes"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Settings -->
+                        <div class="form-section">
+                            <h3>Order Settings</h3>
+                            <div class="form-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="orderStatus">Order Status *</label>
+                                        <select id="orderStatus" name="orderStatus" class="form-select" required>
+                                            <option value="pending">Pending</option>
+                                            <option value="confirmed" selected>Confirmed</option>
+                                            <option value="processing">Processing</option>
+                                            <option value="shipped">Shipped</option>
+                                            <option value="delivered">Delivered</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="orderPriority">Priority</label>
+                                        <select id="orderPriority" name="orderPriority" class="form-select">
+                                            <option value="normal" selected>Normal</option>
+                                            <option value="high">High</option>
+                                            <option value="urgent">Urgent</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="orderNotes">Order Notes</label>
+                                    <textarea id="orderNotes" name="orderNotes" class="form-textarea" rows="3" placeholder="Internal notes about this order"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="sendNotification">Customer Notification</label>
+                                    <div class="switch-group">
+                                        <div class="switch">
+                                            <input type="checkbox" id="sendNotification" name="sendNotification" checked>
+                                            <span class="slider"></span>
+                                        </div>
+                                        <span>Send order confirmation email to customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" data-action="back">Cancel</button>
+                        <button type="button" class="btn btn-secondary">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary">Create Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .customer-search-box {
+            display: flex;
+            gap: var(--space-2);
+            align-items: center;
+        }
+
+        .customer-search-box .form-input {
+            flex: 1;
+        }
+
+        .customer-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            background: var(--bg-tertiary);
+        }
+
+        .customer-avatar img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .customer-info {
+            flex: 1;
+        }
+
+        .customer-info h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .customer-info p {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+        }
+
+        .order-items-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: var(--space-4);
+        }
+
+        .order-items-list {
+            min-height: 100px;
+            border: 2px dashed var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            text-align: center;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-4);
+        }
+
+        .order-items-list.empty::before {
+            content: "No items added yet. Click 'Add Product' to start building the order.";
+        }
+
+        .order-totals {
+            border-top: 1px solid var(--border-primary);
+            padding-top: var(--space-4);
+        }
+
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .totals-row.total {
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-base);
+            border-top: 1px solid var(--border-primary);
+            padding-top: var(--space-2);
+            margin-top: var(--space-2);
+        }
+    </style>
+
+    <script>
+        // Form submission
+        document.getElementById('orderCreateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Show success message (simulate)
+            alert('Order created successfully!');
+            
+            // In real implementation, send data to server
+            console.log('Order data:', Object.fromEntries(formData));
+        });
+
+        // Customer search simulation
+        document.getElementById('customerSearch').addEventListener('input', function(e) {
+            if (e.target.value.length > 2) {
+                // Simulate customer found
+                setTimeout(() => {
+                    document.querySelector('.selected-customer').style.display = 'block';
+                }, 500);
+            }
+        });
+
+        // Add item functionality (placeholder)
+        document.getElementById('addItemBtn').addEventListener('click', function() {
+            alert('Product selection modal would open here');
+        });
+
+        // Shipping method change handler
+        document.getElementById('shippingMethod').addEventListener('change', function(e) {
+            const shippingCosts = {
+                'standard': 5.99,
+                'express': 12.99,
+                'overnight': 24.99,
+                'pickup': 0
+            };
+            
+            const cost = shippingCosts[e.target.value] || 0;
+            document.getElementById('shipping').textContent = `$${cost.toFixed(2)}`;
+            updateTotal();
+        });
+
+        function updateTotal() {
+            const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$', '')) || 0;
+            const tax = parseFloat(document.getElementById('tax').textContent.replace('$', '')) || 0;
+            const shipping = parseFloat(document.getElementById('shipping').textContent.replace('$', '')) || 0;
+            
+            const total = subtotal + tax + shipping;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Initialize empty state
+        document.querySelector('.order-items-list').classList.add('empty');
+    </script>
+</body>
+</html> 

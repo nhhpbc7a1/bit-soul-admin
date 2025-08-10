@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="orders-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Order Management</h1>
+                        <p class="page-subtitle">Track and manage all customer orders</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i>
+                            <span>Export Orders</span>
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Orders</h3>
+                        <div class="stat-value">8,426</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12.5%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Pending Orders</h3>
+                        <div class="stat-value">234</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5.2%</span>
+                            <small>vs yesterday</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Completed Orders</h3>
+                        <div class="stat-value">7,892</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8.1%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Revenue</h3>
+                        <div class="stat-value">$342,670</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+15.3%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Table -->
+            <section class="table-section">
+                <div class="table-header">
+                    <div class="table-title">
+                        <h3>All Orders</h3>
+                        <p>Monitor and manage customer orders</p>
+                    </div>
+                    <div class="table-actions">
+                        <!-- Filters on the left -->
+                        <div class="table-filters">
+                            <select class="form-select">
+                                <option>All Status</option>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Shipped</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Payment Status</option>
+                                <option>Paid</option>
+                                <option>Pending</option>
+                                <option>Failed</option>
+                                <option>Refunded</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Time</option>
+                                <option>Today</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+                        </div>
+                        <!-- Search and actions on the right -->
+                        <div class="search-and-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search orders..." class="search-input">
+                            </div>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-cog"></i>
+                                Bulk Actions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Order Info</th>
+                                <th>Customer</th>
+                                <th>Seller</th>
+                                <th>Supplier</th>
+                                <th>Total/Commission</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="order-info">
+                                        <div class="order-id">
+                                            <strong>#ORD-2024-001</strong>
+                                            <small>Mar 15, 2024</small>
+                                        </div>
+                                        <div class="order-items">
+                                            <span class="item-count">2 items</span>
+                                            <span class="item-preview">iPhone 15 Pro Max, Wireless Charger</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b68b2500?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Sarah Johnson</h4>
+                                            <p>sarah@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="seller-name">
+                                            <strong>TechStore Vietnam</strong>
+                                            <span class="badge badge-success">Verified</span>
+                                        </div>
+                                        <small>ID: SELL-12345</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="supplier-info">
+                                        <div class="supplier-name">
+                                            <strong>Apple Distributor</strong>
+                                            <span class="badge badge-warning">Premium</span>
+                                        </div>
+                                        <small>ID: SUP-67890</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="financial-info">
+                                        <div class="order-total">
+                                            <strong>$1,247.99</strong>
+                                        </div>
+                                        <div class="commission-breakdown">
+                                            <small>Platform: $43.68 (3.5%)</small>
+                                            <small>Seller: $200.00 (16.1%)</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-group">
+                                        <span class="status-badge active">Delivered</span>
+                                        <span class="badge badge-primary">Paid</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Track" data-action="track" data-id="1">
+                                            <i class="fas fa-truck"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Commission" data-action="commission" data-id="1">
+                                            <i class="fas fa-percentage"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="order-info">
+                                        <div class="order-id">
+                                            <strong>#ORD-2024-002</strong>
+                                            <small>Mar 14, 2024</small>
+                                        </div>
+                                        <div class="order-items">
+                                            <span class="item-count">1 item</span>
+                                            <span class="item-preview">Gaming Headset Pro</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Mike Chen</h4>
+                                            <p>mike@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="seller-name">
+                                            <strong>Gaming World</strong>
+                                            <span class="badge badge-success">Verified</span>
+                                        </div>
+                                        <small>ID: SELL-54321</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="supplier-info">
+                                        <div class="supplier-name">
+                                            <strong>Audio Electronics Co</strong>
+                                            <span class="badge badge-info">Standard</span>
+                                        </div>
+                                        <small>ID: SUP-11122</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="financial-info">
+                                        <div class="order-total">
+                                            <strong>$299.99</strong>
+                                        </div>
+                                        <div class="commission-breakdown">
+                                            <small>Platform: $10.50 (3.5%)</small>
+                                            <small>Seller: $100.00 (33.3%)</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-group">
+                                        <span class="status-badge pending">Processing</span>
+                                        <span class="badge badge-primary">Paid</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="2">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Track" data-action="track" data-id="2">
+                                            <i class="fas fa-truck"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Commission" data-action="commission" data-id="2">
+                                            <i class="fas fa-percentage"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="order-info">
+                                        <div class="order-id">
+                                            <strong>#ORD-2024-003</strong>
+                                            <small>Mar 13, 2024</small>
+                                        </div>
+                                        <div class="order-items">
+                                            <span class="item-count">3 items</span>
+                                            <span class="item-preview">Nike Shoes, Sports Watch, Water Bottle</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Emma Wilson</h4>
+                                            <p>emma@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="seller-name">
+                                            <strong>Sports Central</strong>
+                                            <span class="badge badge-success">Verified</span>
+                                        </div>
+                                        <small>ID: SELL-77777</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="supplier-info">
+                                        <div class="supplier-name">
+                                            <strong>Sports Wholesale Hub</strong>
+                                            <span class="badge badge-info">Standard</span>
+                                        </div>
+                                        <small>ID: SUP-33344</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="financial-info">
+                                        <div class="order-total">
+                                            <strong>$459.97</strong>
+                                        </div>
+                                        <div class="commission-breakdown">
+                                            <small>Platform: $16.10 (3.5%)</small>
+                                            <small>Seller: $95.50 (20.8%)</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-group">
+                                        <span class="status-badge pending">Shipped</span>
+                                        <span class="badge badge-primary">Paid</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="3">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Track" data-action="track" data-id="3">
+                                            <i class="fas fa-truck"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Commission" data-action="commission" data-id="3">
+                                            <i class="fas fa-percentage"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="table-info">
+                        Showing 1-2 of 8,426 orders
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline btn-sm" disabled>Previous</button>
+                        <button class="btn btn-primary btn-sm">1</button>
+                        <button class="btn btn-outline btn-sm">2</button>
+                        <button class="btn btn-outline btn-sm">3</button>
+                        <span>...</span>
+                        <button class="btn btn-outline btn-sm">421</button>
+                        <button class="btn btn-outline btn-sm">Next</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <style>
+        /* Dropshipping Orders Specific Styles */
+        .order-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .order-id strong {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .order-id small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .item-count {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-secondary);
+        }
+
+        .item-preview {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 200px;
+        }
+
+        /* Seller and Supplier Info */
+        .seller-info, .supplier-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .seller-name, .supplier-name {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-1);
+        }
+
+        .seller-name strong, .supplier-name strong {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+
+        .seller-info small, .supplier-info small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        /* Financial Info */
+        .financial-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            text-align: right;
+        }
+
+        .order-total strong {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+        }
+
+        .commission-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .commission-breakdown small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .commission-breakdown small:first-child {
+            color: var(--color-primary);
+        }
+
+        .commission-breakdown small:last-child {
+            color: var(--color-success);
+        }
+
+        /* Status Group */
+        .status-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            align-items: flex-start;
+        }
+
+        /* Badge variants for supplier types */
+        .badge.badge-info {
+            background: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .item-preview {
+                max-width: 150px;
+            }
+            
+            .financial-info {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .order-info {
+                gap: var(--space-1);
+            }
+            
+            .seller-name, .supplier-name {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-1);
+            }
+            
+            .commission-breakdown {
+                display: none;
+            }
+            
+            .status-group {
+                flex-direction: row;
+                gap: var(--space-1);
+            }
+        }
+    </style>
+
+    <script>
+        // Dropshipping-specific action handlers
+        document.addEventListener('click', function(e) {
+            const actionBtn = e.target.closest('.btn-icon');
+            if (!actionBtn) return;
+            
+            const action = actionBtn.dataset.action;
+            const orderId = actionBtn.dataset.id;
+            
+            switch(action) {
+                case 'track':
+                    handleOrderTracking(orderId);
+                    break;
+                case 'commission':
+                    handleCommissionDetails(orderId);
+                    break;
+            }
+        });
+
+        function handleOrderTracking(orderId) {
+            console.log('Opening tracking details for order:', orderId);
+            // In real implementation, show tracking modal with:
+            // - Customer delivery tracking
+            // - Supplier fulfillment status
+            // - Multi-party logistics coordination
+            alert(`Opening comprehensive tracking for order ${orderId}\n\n` +
+                  `This would show:\n` +
+                  `• Customer delivery status\n` +
+                  `• Supplier fulfillment progress\n` +
+                  `• Shipping carrier information\n` +
+                  `• Multi-party logistics coordination`);
+        }
+
+        function handleCommissionDetails(orderId) {
+            console.log('Opening commission breakdown for order:', orderId);
+            // In real implementation, show detailed commission modal with:
+            // - Platform fees
+            // - Seller commission
+            // - Supplier costs
+            // - Payment timeline
+            alert(`Opening commission breakdown for order ${orderId}\n\n` +
+                  `This would show:\n` +
+                  `• Platform fee breakdown\n` +
+                  `• Seller commission details\n` +
+                  `• Supplier payment schedule\n` +
+                  `• Payment processing timeline\n` +
+                  `• Tax calculations`);
+        }
+
+        // Enhanced search functionality for dropshipping
+        const searchInput = document.querySelector('input[placeholder*="Search"]');
+        if (searchInput) {
+            searchInput.placeholder = "Search orders, customers, sellers, or suppliers...";
+            
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const rows = document.querySelectorAll('tbody tr');
+                
+                rows.forEach(row => {
+                    const orderInfo = row.querySelector('.order-id strong')?.textContent.toLowerCase() || '';
+                    const customerInfo = row.querySelector('.user-info h4')?.textContent.toLowerCase() || '';
+                    const sellerInfo = row.querySelector('.seller-name strong')?.textContent.toLowerCase() || '';
+                    const supplierInfo = row.querySelector('.supplier-name strong')?.textContent.toLowerCase() || '';
+                    
+                    const shouldShow = orderInfo.includes(searchTerm) || 
+                                     customerInfo.includes(searchTerm) || 
+                                     sellerInfo.includes(searchTerm) || 
+                                     supplierInfo.includes(searchTerm);
+                    
+                    row.style.display = shouldShow ? '' : 'none';
+                });
+            });
+        }
+
+        // Filter buttons for order management
+        function addDropshippingFilters() {
+            const filtersContainer = document.querySelector('.table-filters');
+            if (filtersContainer) {
+                const dropshippingFilters = `
+                    <button class="btn btn-outline btn-sm" data-filter="pending-supplier">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Supplier</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" data-filter="commission-pending">
+                        <i class="fas fa-percentage"></i>
+                        <span>Commission Pending</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" data-filter="high-commission">
+                        <i class="fas fa-trophy"></i>
+                        <span>High Commission</span>
+                    </button>
+                `;
+                filtersContainer.insertAdjacentHTML('beforeend', dropshippingFilters);
+            }
+        }
+
+        // Initialize dropshipping features
+        document.addEventListener('DOMContentLoaded', function() {
+            addDropshippingFilters();
+        });
+    </script>
+</body>
+</html> 

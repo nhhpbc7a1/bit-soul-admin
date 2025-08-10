@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Payments - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="payments-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Payment Management</h1>
+                        <p class="page-subtitle">Monitor and manage all payment transactions</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i>
+                            <span>Export Payments</span>
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Payment Analytics</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Transactions</h3>
+                        <div class="stat-value">15,247</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+18.2%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Successful Payments</h3>
+                        <div class="stat-value">14,892</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12.8%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Failed Payments</h3>
+                        <div class="stat-value">355</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2.1%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Revenue</h3>
+                        <div class="stat-value">$892,340</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+25.7%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payments Table -->
+            <section class="table-section">
+                <div class="table-header">
+                    <div class="table-title">
+                        <h3>All Payments</h3>
+                        <p>Monitor payment transactions and statuses</p>
+                    </div>
+                    <div class="table-actions">
+                        <!-- Filters on the left -->
+                        <div class="table-filters">
+                            <select class="form-select">
+                                <option>All Status</option>
+                                <option>Completed</option>
+                                <option>Pending</option>
+                                <option>Failed</option>
+                                <option>Refunded</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Methods</option>
+                                <option>Credit Card</option>
+                                <option>PayPal</option>
+                                <option>Bank Transfer</option>
+                                <option>Cryptocurrency</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Time</option>
+                                <option>Today</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+                        </div>
+                        <!-- Search and actions on the right -->
+                        <div class="search-and-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search payments..." class="search-input">
+                            </div>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Manual Payment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Payment ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="payment-id">
+                                        <strong>#PAY-2024-001</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b68b2500?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Sarah Johnson</h4>
+                                            <p>sarah@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><strong>$1,247.99</strong></td>
+                                <td>
+                                    <div class="payment-method">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <span>•••• 4532</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Completed</span>
+                                </td>
+                                <td>2024-01-15</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Receipt">
+                                            <i class="fas fa-receipt"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Refund">
+                                            <i class="fas fa-undo"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="payment-id">
+                                        <strong>#PAY-2024-002</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Mike Chen</h4>
+                                            <p>mike@example.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><strong>$249.99</strong></td>
+                                <td>
+                                    <div class="payment-method">
+                                        <i class="fab fa-paypal"></i>
+                                        <span>PayPal</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge pending">Processing</span>
+                                </td>
+                                <td>2024-01-14</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="2">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Receipt">
+                                            <i class="fas fa-receipt"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Cancel">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="table-info">
+                        Showing 1-2 of 15,247 payments
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline btn-sm" disabled>Previous</button>
+                        <button class="btn btn-primary btn-sm">1</button>
+                        <button class="btn btn-outline btn-sm">2</button>
+                        <button class="btn btn-outline btn-sm">3</button>
+                        <span>...</span>
+                        <button class="btn btn-outline btn-sm">763</button>
+                        <button class="btn btn-outline btn-sm">Next</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <style>
+        /* Payment-specific styles */
+        .payment-id strong {
+            color: var(--color-primary);
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .payment-method i {
+            font-size: var(--font-size-lg);
+            color: var(--color-primary);
+        }
+
+        .payment-method span {
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+    </style>
+</body>
+</html> 

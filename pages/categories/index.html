@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Categories - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+</head>
+<body>
+            <div class="dashboard-content">
+        <div class="categories-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Categories Management</h1>
+                        <p class="page-subtitle">Manage product categories and their hierarchical structure</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-primary" data-action="create">
+                            <i class="fas fa-plus"></i>
+                            <span>Add New Category</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search and Filters -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Category Hierarchy</h2>
+                    <div class="table-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search categories..." id="categorySearch">
+                                        </div>
+                        <div class="filter-dropdown">
+                            <button class="btn btn-outline dropdown-trigger">
+                                <i class="fas fa-filter"></i>
+                                <span>Filter</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" data-filter="all">All Categories</a>
+                                <a href="#" class="dropdown-item" data-filter="parent">Parent Only</a>
+                                <a href="#" class="dropdown-item" data-filter="child">Child Only</a>
+                                <a href="#" class="dropdown-item" data-filter="active">Active</a>
+                                <a href="#" class="dropdown-item" data-filter="inactive">Inactive</a>
+                                        </div>
+                                    </div>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i>
+                            <span>Export</span>
+                        </button>
+                                    </div>
+                                </div>
+                                
+                <!-- Categories Tree Table -->
+                <div class="table-responsive">
+                    <table class="data-table categories-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Category Name</th>
+                                <th>Description</th>
+                                <th>Parent Category</th>
+                                <th>Products Count</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Parent Category -->
+                            <tr class="category-row parent-category" data-category-id="1" data-level="0">
+                                <td>
+                                    <input type="checkbox" name="categorySelect" value="1">
+                                </td>
+                                <td class="category-name">
+                                    <div class="category-item">
+                                        <button class="expand-btn" data-expanded="true">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="category-icon">
+                                            <i class="fas fa-laptop"></i>
+                                        </div>
+                                            <div class="category-info">
+                                            <span class="name">Electronics</span>
+                                            <span class="category-code">#CAT-001</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="description">Electronic devices and accessories</td>
+                                <td class="parent">—</td>
+                                <td class="product-count">
+                                    <span class="count-badge">847</span>
+                                </td>
+                                <td class="status">
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                                <td class="created-date">Jan 15, 2023</td>
+                                <td class="actions">
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit" data-action="edit" data-id="1">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Add Sub-category" data-action="add-child" data-id="1">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Delete" data-action="delete" data-id="1">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Child Categories -->
+                            <tr class="category-row child-category" data-category-id="2" data-parent-id="1" data-level="1">
+                                <td>
+                                    <input type="checkbox" name="categorySelect" value="2">
+                                </td>
+                                <td class="category-name">
+                                    <div class="category-item level-1">
+                                        <button class="expand-btn" data-expanded="false">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                        <div class="category-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="category-info">
+                                            <span class="name">Smartphones</span>
+                                            <span class="category-code">#CAT-002</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="description">Mobile phones and smartphones</td>
+                                <td class="parent">Electronics</td>
+                                <td class="product-count">
+                                    <span class="count-badge">324</span>
+                                </td>
+                                <td class="status">
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                                <td class="created-date">Jan 20, 2023</td>
+                                <td class="actions">
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="2">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit" data-action="edit" data-id="2">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Add Sub-category" data-action="add-child" data-id="2">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Delete" data-action="delete" data-id="2">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="category-row child-category" data-category-id="3" data-parent-id="1" data-level="1">
+                                <td>
+                                    <input type="checkbox" name="categorySelect" value="3">
+                                </td>
+                                <td class="category-name">
+                                    <div class="category-item level-1">
+                                        <button class="expand-btn disabled">
+                                            <i class="fas fa-circle" style="font-size: 4px;"></i>
+                                        </button>
+                                        <div class="category-icon">
+                                            <i class="fas fa-desktop"></i>
+                                        </div>
+                                            <div class="category-info">
+                                            <span class="name">Computers</span>
+                                            <span class="category-code">#CAT-003</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="description">Desktop and laptop computers</td>
+                                <td class="parent">Electronics</td>
+                                <td class="product-count">
+                                    <span class="count-badge">189</span>
+                                </td>
+                                <td class="status">
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                                <td class="created-date">Jan 22, 2023</td>
+                                <td class="actions">
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="3">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit" data-action="edit" data-id="3">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Add Sub-category" data-action="add-child" data-id="3">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Delete" data-action="delete" data-id="3">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Another Parent Category -->
+                            <tr class="category-row parent-category" data-category-id="4" data-level="0">
+                                <td>
+                                    <input type="checkbox" name="categorySelect" value="4">
+                                </td>
+                                <td class="category-name">
+                                    <div class="category-item">
+                                        <button class="expand-btn" data-expanded="false">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                        <div class="category-icon">
+                                            <i class="fas fa-tshirt"></i>
+                                        </div>
+                                        <div class="category-info">
+                                            <span class="name">Fashion & Clothing</span>
+                                            <span class="category-code">#CAT-004</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="description">Clothing, accessories, and fashion items</td>
+                                <td class="parent">—</td>
+                                <td class="product-count">
+                                    <span class="count-badge">1,234</span>
+                                </td>
+                                <td class="status">
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                                <td class="created-date">Feb 01, 2023</td>
+                                <td class="actions">
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="4">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit" data-action="edit" data-id="4">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Add Sub-category" data-action="add-child" data-id="4">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Delete" data-action="delete" data-id="4">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="category-row parent-category" data-category-id="5" data-level="0">
+                                <td>
+                                    <input type="checkbox" name="categorySelect" value="5">
+                                </td>
+                                <td class="category-name">
+                                    <div class="category-item">
+                                        <button class="expand-btn disabled">
+                                            <i class="fas fa-circle" style="font-size: 4px;"></i>
+                                        </button>
+                                        <div class="category-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="category-info">
+                                            <span class="name">Home & Garden</span>
+                                            <span class="category-code">#CAT-005</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="description">Home improvement and garden supplies</td>
+                                <td class="parent">—</td>
+                                <td class="product-count">
+                                    <span class="count-badge">567</span>
+                                </td>
+                                <td class="status">
+                                    <span class="badge badge-warning">Inactive</span>
+                                </td>
+                                <td class="created-date">Feb 10, 2023</td>
+                                <td class="actions">
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="5">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit" data-action="edit" data-id="5">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Add Sub-category" data-action="add-child" data-id="5">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Delete" data-action="delete" data-id="5">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                <!-- Pagination -->
+                <div class="table-footer">
+                    <div class="table-info">
+                        <span>Showing 1 to 5 of 125 categories</span>
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="btn btn-primary">1</button>
+                        <button class="btn btn-outline">2</button>
+                        <button class="btn btn-outline">3</button>
+                        <span>...</span>
+                        <button class="btn btn-outline">25</button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                            </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html> 

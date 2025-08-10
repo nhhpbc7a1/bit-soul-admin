@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="detail-page">
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Category Details</h1>
+                        <p class="page-subtitle">View category information and manage settings</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Categories</span>
+                        </button>
+                        <button class="btn btn-primary" data-action="edit" data-id="1">
+                            <i class="fas fa-edit"></i>
+                            <span>Edit Category</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="detail-container">
+                <div class="detail-grid">
+                    <!-- Main Content -->
+                    <div class="detail-main">
+                        <!-- Category Overview -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Category Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <!-- Category Header -->
+                                <div class="category-info-section">
+                                    <div class="category-icon-large">
+                                        <i class="fas fa-laptop"></i>
+                                    </div>
+                                    <div class="category-info-large">
+                                        <h2>Electronics</h2>
+                                        <div class="category-description">
+                                            Electronic devices and accessories including smartphones, computers, audio equipment, and various tech gadgets for modern life.
+                                        </div>
+                                        <div class="user-badges" style="margin-top: 12px;">
+                                            <span class="badge badge-success">Active</span>
+                                            <span class="badge badge-primary">#CAT-001</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Basic Info Grid -->
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Category Name</label>
+                                        <span>Electronics</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Category Code</label>
+                                        <span>#CAT-001</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Parent Category</label>
+                                        <span>None (Top Level)</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Category Level</label>
+                                        <span>Level 1</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Status</label>
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Created Date</label>
+                                        <span>January 15, 2023</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Last Modified</label>
+                                        <span>March 10, 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Statistics -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Category Statistics</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="activity-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-value">847</div>
+                                        <div class="stat-label">Total Products</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">3</div>
+                                        <div class="stat-label">Sub Categories</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">324</div>
+                                        <div class="stat-label">Active Products</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">$124,580</div>
+                                        <div class="stat-label">Total Sales</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub Categories -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Sub Categories</h3>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    Add Sub Category
+                                </button>
+                            </div>
+                            <div class="card-content">
+                                <div class="recent-items">
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">
+                                                <i class="fas fa-mobile-alt" style="margin-right: 8px; color: #6366f1;"></i>
+                                                Smartphones
+                                            </div>
+                                            <div class="item-subtitle">324 products • #CAT-002</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <span class="badge badge-success">Active</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">
+                                                <i class="fas fa-desktop" style="margin-right: 8px; color: #6366f1;"></i>
+                                                Computers
+                                            </div>
+                                            <div class="item-subtitle">189 products • #CAT-003</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <span class="badge badge-success">Active</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">
+                                                <i class="fas fa-headphones" style="margin-right: 8px; color: #6366f1;"></i>
+                                                Audio & Video
+                                            </div>
+                                            <div class="item-subtitle">177 products • #CAT-004</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <span class="badge badge-success">Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="detail-sidebar">
+                        <!-- Quick Actions -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-list">
+                                    <button class="action-btn" data-action="edit">
+                                        <i class="fas fa-edit"></i>
+                                        <span>Edit Category</span>
+                                    </button>
+                                    <button class="action-btn" data-action="add-child">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Add Sub Category</span>
+                                    </button>
+                                    <button class="action-btn" data-action="duplicate">
+                                        <i class="fas fa-copy"></i>
+                                        <span>Duplicate Category</span>
+                                    </button>
+                                    <button class="action-btn" data-action="view-products">
+                                        <i class="fas fa-boxes"></i>
+                                        <span>View Products</span>
+                                    </button>
+                                    <hr style="margin: 12px 0; border: none; border-top: 1px solid #f1f5f9;">
+                                    <button class="action-btn" data-action="toggle-status">
+                                        <i class="fas fa-toggle-on"></i>
+                                        <span>Toggle Status</span>
+                                    </button>
+                                    <button class="action-btn danger" data-action="delete">
+                                        <i class="fas fa-trash"></i>
+                                        <span>Delete Category</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Image -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Category Image</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="category-image-preview">
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-image"></i>
+                                        <p>No image uploaded</p>
+                                        <small>Upload an image to represent this category</small>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 12px; width: 100%;">
+                                        <i class="fas fa-upload"></i>
+                                        Upload Image
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Log -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Recent Activity</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="recent-items">
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">Category created</div>
+                                            <div class="item-subtitle">by Admin User</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <small style="color: #64748b;">Jan 15, 2023</small>
+                                        </div>
+                                    </div>
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">Description updated</div>
+                                            <div class="item-subtitle">by Admin User</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <small style="color: #64748b;">Mar 10, 2024</small>
+                                        </div>
+                                    </div>
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">Sub category added</div>
+                                            <div class="item-subtitle">Smartphones</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <small style="color: #64748b;">Jan 20, 2023</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Complaints - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="complaints-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Complaints Management</h1>
+                        <p class="page-subtitle">Track and resolve customer complaints and reported issues</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            <span>Export Report</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complaints Table -->
+            <section class="table-section">
+                <div class="table-header">
+                    <div class="table-title">
+                        <h3>All Complaints</h3>
+                        <p>Monitor and resolve customer complaints</p>
+                    </div>
+                    <div class="table-actions">
+                        <!-- Filters on the left -->
+                        <div class="table-filters">
+                            <select class="form-select">
+                                <option>All Status</option>
+                                <option>Open</option>
+                                <option>Investigating</option>
+                                <option>Pending Response</option>
+                                <option>Resolved</option>
+                                <option>Closed</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Types</option>
+                                <option>Order Issues</option>
+                                <option>Payment Problems</option>
+                                <option>Product Quality</option>
+                                <option>Delivery Issues</option>
+                                <option>Seller Disputes</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Priority</option>
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+                        <!-- Search and actions on the right -->
+                        <div class="search-and-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search complaints..." class="search-input">
+                            </div>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-filter"></i>
+                                Advanced Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table complaints-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Complaint ID</th>
+                                <th>Customer & Subject</th>
+                                <th>Type & Priority</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="complaint-id">
+                                        <strong>#CPL-001</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="complaint-main-info">
+                                        <div class="user-cell">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b68b2500?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                            <div class="user-info">
+                                                <h4>Sarah Johnson</h4>
+                                                <p>sarah@example.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="complaint-subject">
+                                            <strong>Order delivery delay</strong>
+                                            <p>Package arrived 5 days late without notification</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="type-priority-cell">
+                                        <span class="badge badge-warning">Delivery</span>
+                                        <span class="priority-badge high">High</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-cell">
+                                        <span class="status-badge pending">Investigating</span>
+                                        <div class="assigned-user">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=20&h=20&fit=crop&crop=face" alt="Agent" class="avatar avatar-xs">
+                                            <span>John Smith</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-text">2024-01-15</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Reply">
+                                            <i class="fas fa-reply"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Close">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="complaint-id">
+                                        <strong>#CPL-002</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="complaint-main-info">
+                                        <div class="user-cell">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" alt="Customer" class="avatar avatar-sm">
+                                            <div class="user-info">
+                                                <h4>Mike Chen</h4>
+                                                <p>mike@example.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="complaint-subject">
+                                            <strong>Product quality issue</strong>
+                                            <p>Received damaged electronics item</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="type-priority-cell">
+                                        <span class="badge badge-error">Product</span>
+                                        <span class="priority-badge medium">Medium</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-cell">
+                                        <span class="status-badge active">Resolved</span>
+                                        <div class="assigned-user">
+                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=20&h=20&fit=crop&crop=face" alt="Agent" class="avatar avatar-xs">
+                                            <span>Emma Wilson</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-text">2024-01-14</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View" data-action="view" data-id="2">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Reopen">
+                                            <i class="fas fa-undo"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Archive">
+                                            <i class="fas fa-archive"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="table-info">
+                        Showing 1-2 of 847 complaints
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline btn-sm" disabled>Previous</button>
+                        <button class="btn btn-primary btn-sm">1</button>
+                        <button class="btn btn-outline btn-sm">2</button>
+                        <button class="btn btn-outline btn-sm">3</button>
+                        <span>...</span>
+                        <button class="btn btn-outline btn-sm">42</button>
+                        <button class="btn btn-outline btn-sm">Next</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <style>
+        /* Complaint-specific styles */
+        .complaint-id strong {
+            color: var(--color-primary);
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        /* Combined cells styles */
+        .complaint-main-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            min-width: 280px;
+        }
+
+        .complaint-subject {
+            max-width: 280px;
+        }
+
+        .complaint-subject strong {
+            display: block;
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .complaint-subject p {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .type-priority-cell {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            min-width: 100px;
+        }
+
+        .status-cell {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            min-width: 120px;
+        }
+
+        .priority-badge {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .priority-badge.high {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--color-error);
+        }
+
+        .priority-badge.medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+
+        .priority-badge.low {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--color-success);
+        }
+
+        .assigned-user {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .assigned-user span {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }
+
+        .date-text {
+            font-size: var(--font-size-sm);
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        /* Table responsive improvements */
+        .complaints-table {
+            min-width: 900px;
+        }
+
+        .complaints-table th:nth-child(1) { width: 40px; }    /* Checkbox */
+        .complaints-table th:nth-child(2) { width: 100px; }  /* ID */
+        .complaints-table th:nth-child(3) { width: 350px; }  /* Customer & Subject */
+        .complaints-table th:nth-child(4) { width: 120px; }  /* Type & Priority */
+        .complaints-table th:nth-child(5) { width: 140px; }  /* Status */
+        .complaints-table th:nth-child(6) { width: 80px; }   /* Date */
+        .complaints-table th:nth-child(7) { width: 120px; }  /* Actions */
+
+        /* Stat Card Color Variations */
+        .stat-card.complaints-total .stat-icon {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+
+        .stat-card.complaints-open .stat-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .stat-card.complaints-investigating .stat-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .stat-card.complaints-resolved .stat-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        @media (max-width: 1200px) {
+            .complaint-main-info {
+                min-width: 240px;
+            }
+            
+            .complaint-subject {
+                max-width: 240px;
+            }
+            
+            .complaints-table th:nth-child(3) { width: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .complaint-main-info {
+                min-width: 200px;
+            }
+
+            .complaint-subject {
+                max-width: 200px;
+            }
+            
+            .complaints-table {
+                min-width: 700px;
+            }
+            
+            .complaints-table th:nth-child(3) { width: 250px; }
+            .complaints-table th:nth-child(4) { width: 100px; }
+            .complaints-table th:nth-child(5) { width: 120px; }
+
+            /* Hide assigned user on mobile */
+            .assigned-user {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .complaints-table {
+                min-width: 600px;
+            }
+            
+            .complaints-table th:nth-child(3) { width: 200px; }
+            .complaints-table th:nth-child(4) { width: 80px; }
+            .complaints-table th:nth-child(5) { width: 100px; }
+            .complaints-table th:nth-child(6) { width: 70px; }
+            .complaints-table th:nth-child(7) { width: 100px; }
+        }
+    </style>
+</body>
+</html> 

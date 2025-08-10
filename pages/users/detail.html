@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="detail-page">
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">User Details</h1>
+                        <p class="page-subtitle">View and manage user information</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Users</span>
+                        </button>
+                        <button class="btn btn-primary" data-action="edit" data-id="1">
+                            <i class="fas fa-edit"></i>
+                            <span>Edit User</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="detail-container">
+                <div class="detail-grid">
+                    <div class="detail-main">
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>User Information</h3>
+                                <div class="status-badge active">Active</div>
+                            </div>
+                            <div class="card-content">
+                                <div class="user-profile-section">
+                                    <div class="user-avatar-large">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNDAiIHI9IjIwIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0yMCA5MEMyMCA3NiA0NCA2OCA2MCA2OEM3NiA2OCAxMDAgNzYgMTAwIDkwVjEyMEgyMFY5MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+" alt="User Avatar">
+                                    </div>
+                                    <div class="user-info-large">
+                                        <h2>Sarah Johnson</h2>
+                                        <p class="user-email">sarah.johnson@example.com</p>
+                                        <div class="user-badges">
+                                            <span class="badge badge-primary">Customer</span>
+                                            <span class="badge badge-success">Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>User ID</label>
+                                        <span>#USR-001</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Phone</label>
+                                        <span>+1 (555) 123-4567</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Date of Birth</label>
+                                        <span>March 15, 1990</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Join Date</label>
+                                        <span>January 12, 2023</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Last Login</label>
+                                        <span>2 hours ago</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Address</label>
+                                        <span>123 Main St, New York, NY 10001</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Account Activity</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="activity-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-value">47</div>
+                                        <div class="stat-label">Total Orders</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">$2,847</div>
+                                        <div class="stat-label">Total Spent</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">4.8</div>
+                                        <div class="stat-label">Avg Rating</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-sidebar">
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-list">
+                                    <button class="action-btn">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Send Message</span>
+                                    </button>
+                                    <button class="action-btn">
+                                        <i class="fas fa-ban"></i>
+                                        <span>Suspend Account</span>
+                                    </button>
+                                    <button class="action-btn">
+                                        <i class="fas fa-key"></i>
+                                        <span>Reset Password</span>
+                                    </button>
+                                    <button class="action-btn danger">
+                                        <i class="fas fa-trash"></i>
+                                        <span>Delete Account</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Recent Orders</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="recent-items">
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">#ORD-123</div>
+                                            <div class="item-subtitle">$89.99</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <span class="badge badge-success">Completed</span>
+                                        </div>
+                                    </div>
+                                    <div class="recent-item">
+                                        <div class="item-info">
+                                            <div class="item-title">#ORD-124</div>
+                                            <div class="item-subtitle">$156.50</div>
+                                        </div>
+                                        <div class="item-status">
+                                            <span class="badge badge-warning">Processing</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

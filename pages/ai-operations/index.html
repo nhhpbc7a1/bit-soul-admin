@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Operations - Admin Panel</title>
+    <style>
+        /* Admin Panel Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* Layout */
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #1e40af 0%, #1d4ed8 100%);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 16px 0;
+        }
+
+        .nav-item {
+            margin: 4px 12px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .nav-item.active .nav-link {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-icon {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            background: #f8fafc;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 32px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .header-left p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 8px 12px;
+            width: 320px;
+            transition: all 0.2s ease;
+        }
+
+        .search-box:focus-within {
+            background: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .notifications {
+            position: relative;
+        }
+
+        .notification-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .notification-btn:hover {
+            background: #e2e8f0;
+            transform: scale(1.05);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .user-profile:hover {
+            background: #f8fafc;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #e2e8f0;
+        }
+
+        .user-profile span {
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .dropdown-btn {
+            border: none;
+            background: none;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-btn:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            padding: 32px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #d97706;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+            font-size: 14px;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* AI Status Overview */
+        .ai-status-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+
+        .status-card.warning::before {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+
+        .status-card.error::before {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        .status-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: transform 0.2s ease;
+        }
+
+        .status-card:hover .status-icon {
+            transform: scale(1.1);
+        }
+
+        .status-icon.processing {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            animation: spin 2s linear infinite;
+        }
+
+        .status-icon.warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .status-icon.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .status-info h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .status-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .status-details {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* Configuration Sections */
+        .config-section {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .config-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .config-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .config-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.warning {
+            background: #f59e0b;
+        }
+
+        .status-indicator.error {
+            background: #ef4444;
+        }
+
+        .config-body {
+            padding: 24px;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .config-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .config-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .config-toggle:hover {
+            background: #f1f5f9;
+            border-color: #3b82f6;
+        }
+
+        .toggle-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .toggle-info p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #10b981;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Metrics Cards */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .metric-card:hover {
+            background: #f1f5f9;
+            border-color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .metric-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.warning {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+
+        .progress-fill.error {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        /* AI Logs Section */
+        .ai-logs {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .logs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .logs-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .logs-controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .log-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.2s ease;
+        }
+
+        .log-entry:hover {
+            background: #f8fafc;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+
+        .log-time {
+            font-size: 12px;
+            color: #94a3b8;
+            min-width: 120px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .log-level {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .log-level.info {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .log-level.success {
+            background: #dcfce7;
+            color: #059669;
+        }
+
+        .log-level.warning {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .log-level.error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .log-message {
+            flex: 1;
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .log-details {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .ai-status-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logs-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+
+            .log-entry {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .log-time {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        Manage Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📂</span>
+                        Manage Categories
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        Manage Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🛒</span>
+                        Manage Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💎</span>
+                        Service Packages
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💳</span>
+                        Payments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        System Config
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🤖</span>
+                        AI Operations
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🎨</span>
+                        UI & Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        Policies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        Complaints
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1>AI Operations Management</h1>
+                    <p>Monitor, configure, and manage AI services and algorithms</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search AI operations...">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="notifications">
+                        <button class="notification-btn">🔔</button>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin Profile">
+                        <span>Admin User</span>
+                        <button class="dropdown-btn">▼</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- AI Operations Content -->
+            <div class="dashboard-content">
+                <!-- AI Status Overview -->
+                <div class="ai-status-overview">
+                    <div class="status-card">
+                        <div class="status-icon">🤖</div>
+                        <div class="status-info">
+                            <h3>AI System Status</h3>
+                            <p class="status-value">Operational</p>
+                            <span class="status-details">All services running</span>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="status-icon processing">⚙️</div>
+                        <div class="status-info">
+                            <h3>Active Processes</h3>
+                            <p class="status-value">2,847</p>
+                            <span class="status-details">Product suggestions generated</span>
+                        </div>
+                    </div>
+                    <div class="status-card warning">
+                        <div class="status-icon warning">⚠️</div>
+                        <div class="status-info">
+                            <h3>Model Accuracy</h3>
+                            <p class="status-value">94.2%</p>
+                            <span class="status-details">Suggestion confidence</span>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="status-icon">📈</div>
+                        <div class="status-info">
+                            <h3>Daily Operations</h3>
+                            <p class="status-value">24k</p>
+                            <span class="status-details">Assignments processed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Suggestion AI Configuration -->
+                <div class="config-section">
+                    <div class="config-header">
+                        <h3>🧠 Product Suggestion AI</h3>
+                        <div class="config-status">
+                            <span class="status-indicator"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-grid">
+                            <div class="config-item">
+                                <label class="form-label">AI Model Version</label>
+                                <select class="form-select">
+                                    <option value="v2.1.3" selected>v2.1.3 (Current)</option>
+                                    <option value="v2.1.2">v2.1.2 (Previous)</option>
+                                    <option value="v2.0.8">v2.0.8 (Stable)</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Confidence Threshold</label>
+                                <input type="range" class="form-input" value="85" min="50" max="100">
+                                <span style="font-size: 12px; color: #64748b;">Current: 85%</span>
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Max Suggestions per User</label>
+                                <input type="number" class="form-input" value="10" min="1" max="50">
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Update Frequency</label>
+                                <select class="form-select">
+                                    <option value="realtime">Real-time</option>
+                                    <option value="hourly" selected>Hourly</option>
+                                    <option value="daily">Daily</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Metrics -->
+                        <div class="metrics-row">
+                            <div class="metric-card">
+                                <div class="metric-number">2.8K</div>
+                                <div class="metric-label">Daily Suggestions</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-number">94.2%</div>
+                                <div class="metric-label">Accuracy Rate</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-number">156ms</div>
+                                <div class="metric-label">Avg Response Time</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-number">12.4K</div>
+                                <div class="metric-label">Training Samples</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary">💾 Save Configuration</button>
+                            <button class="btn btn-secondary">🔄 Retrain Model</button>
+                            <button class="btn btn-warning">⚠️ Reset to Defaults</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier Assignment AI Configuration -->
+                <div class="config-section">
+                    <div class="config-header">
+                        <h3>🏭 Supplier Assignment AI</h3>
+                        <div class="config-status">
+                            <span class="status-indicator"></span>
+                            <span>Active</span>
+                        </div>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-grid">
+                            <div class="config-item">
+                                <label class="form-label">Assignment Algorithm</label>
+                                <select class="form-select">
+                                    <option value="weighted" selected>Weighted Scoring</option>
+                                    <option value="neural">Neural Network</option>
+                                    <option value="hybrid">Hybrid Approach</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Quality Weight (%)</label>
+                                <input type="range" class="form-input" value="40" min="0" max="100">
+                                <span style="font-size: 12px; color: #64748b;">Current: 40%</span>
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Cost Weight (%)</label>
+                                <input type="range" class="form-input" value="35" min="0" max="100">
+                                <span style="font-size: 12px; color: #64748b;">Current: 35%</span>
+                            </div>
+                            <div class="config-item">
+                                <label class="form-label">Speed Weight (%)</label>
+                                <input type="range" class="form-input" value="25" min="0" max="100">
+                                <span style="font-size: 12px; color: #64748b;">Current: 25%</span>
+                            </div>
+                        </div>
+
+                        <!-- Assignment Toggles -->
+                        <div style="margin: 24px 0;">
+                            <h4 style="margin-bottom: 16px; color: #1e293b;">Assignment Configuration</h4>
+                            <div class="config-toggle">
+                                <div class="toggle-info">
+                                    <h4>Auto Assignment</h4>
+                                    <p>Automatically assign suppliers based on AI recommendations</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle">
+                                <div class="toggle-info">
+                                    <h4>Backup Supplier Selection</h4>
+                                    <p>Select backup suppliers for high-demand products</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle">
+                                <div class="toggle-info">
+                                    <h4>Performance Monitoring</h4>
+                                    <p>Monitor supplier performance and adjust recommendations</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary">💾 Save Configuration</button>
+                            <button class="btn btn-secondary">📊 View Analytics</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Activity Logs & Reports -->
+                <div class="ai-logs">
+                    <div class="logs-header">
+                        <h3>🔍 AI Activity Logs & Reports</h3>
+                        <div class="logs-controls">
+                            <select class="form-select" style="width: auto;">
+                                <option value="all">All Levels</option>
+                                <option value="info">Info</option>
+                                <option value="warning">Warning</option>
+                                <option value="error">Error</option>
+                            </select>
+                            <button class="btn btn-secondary btn-sm">📥 Export Logs</button>
+                            <button class="btn btn-primary btn-sm">🔄 Refresh</button>
+                        </div>
+                    </div>
+                    <div class="logs-content">
+                        <div class="log-entry">
+                            <span class="log-time">2024-01-15 14:23:45</span>
+                            <span class="log-level success">SUCCESS</span>
+                            <div class="log-message">
+                                Product suggestion AI model updated successfully
+                                <div class="log-details">Model v2.1.3 deployed with 94.2% accuracy improvement</div>
+                            </div>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">2024-01-15 14:15:23</span>
+                            <span class="log-level info">INFO</span>
+                            <div class="log-message">
+                                Supplier assignment completed for product batch #12345
+                                <div class="log-details">245 products assigned to optimal suppliers based on weighted scoring</div>
+                            </div>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">2024-01-15 13:58:12</span>
+                            <span class="log-level warning">WARNING</span>
+                            <div class="log-message">
+                                Model confidence threshold below recommended level
+                                <div class="log-details">Current threshold: 82%, Recommended: 85%. Consider retraining with recent data</div>
+                            </div>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">2024-01-15 13:42:56</span>
+                            <span class="log-level info">INFO</span>
+                            <div class="log-message">
+                                Failed to assign supplier for product ID: 789
+                                <div class="log-details">No suppliers meet quality criteria. Manual review required</div>
+                            </div>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">2024-01-15 13:30:18</span>
+                            <span class="log-level error">ERROR</span>
+                            <div class="log-message">
+                                AI service connection timeout
+                                <div class="log-details">Attempting automatic recovery... Service restored at 13:31:42</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

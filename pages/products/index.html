@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="products-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Product Management</h1>
+                        <p class="page-subtitle">Monitor, approve, and moderate products in your marketplace</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i>
+                            <span>Export Products</span>
+                        </button>
+                        <button class="btn btn-primary" data-action="manage-approval">
+                            <i class="fas fa-tasks"></i>
+                            <span>Manage Approvals</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Categories/Types Tabs -->
+            <section class="product-types-section">
+                <div class="product-tabs">
+                    <button class="tab-btn active" data-tab="sales-products">
+                        <i class="fas fa-store"></i>
+                        <span>Sales Products</span>
+                        <span class="tab-count">1,247</span>
+                    </button>
+                    <button class="tab-btn" data-tab="supplier-products">
+                        <i class="fas fa-boxes"></i>
+                        <span>Supplier Products</span>
+                        <span class="tab-count">3,856</span>
+                    </button>
+                    <button class="tab-btn" data-tab="pending-approval">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Approval</span>
+                        <span class="tab-count">23</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Products</h3>
+                        <div class="stat-value">5,103</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12.5%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Sales Products</h3>
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8.2%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Supplier Products</h3>
+                        <div class="stat-value">3,856</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+15.7%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Avg Commission</h3>
+                        <div class="stat-value">18.5%</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2.1%</span>
+                            <small>vs last month</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                <!-- Products Table -->
+            <section class="table-section">
+                    <div class="table-header">
+                    <div class="table-title">
+                        <h3>All Products</h3>
+                        <p>Manage product inventory and details</p>
+                    </div>
+                        <div class="table-actions">
+                        <!-- Filters on the left -->
+                        <div class="table-filters">
+                            <select class="form-select">
+                                <option>All Categories</option>
+                                <option>Electronics</option>
+                                <option>Clothing</option>
+                                <option>Home & Garden</option>
+                                <option>Sports</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Status</option>
+                                <option>Active</option>
+                                <option>Hidden</option>
+                                <option>Out of Stock</option>
+                            </select>
+                            <select class="form-select">
+                                <option>All Sellers</option>
+                                <option>TechStore</option>
+                                <option>Fashion Hub</option>
+                                <option>Electronics Plus</option>
+                            </select>
+                        </div>
+                        <!-- Search and actions on the right -->
+                        <div class="search-and-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search products..." class="search-input">
+                            </div>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-chart-bar"></i>
+                                Bulk Actions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Product Info</th>
+                                <th>Type</th>
+                                <th>Seller/Supplier</th>
+                                <th>Price</th>
+                                <th>Commission</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sales Product Example -->
+                            <tr class="sales-product">
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=48&h=48&fit=crop" alt="Product" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>iPhone 15 Pro Max (Seller Version)</h4>
+                                            <p>SKU: SELL-IPHONE-001</p>
+                                            <span class="badge badge-info">Sales Product</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary">Sales</span>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="user-info">
+                                            <h4>TechStore Vietnam</h4>
+                                            <p>Seller ID: SELL-12345</p>
+                                            <small>Based on: SUP-IPHONE-001</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-info">
+                                        <strong>$1,299.00</strong>
+                                        <small>Cost: $1,099.00</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="commission-info">
+                                        <strong>$200.00</strong>
+                                        <small>18.2%</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="stock-badge in-stock">156</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Details" data-action="view" data-id="1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Hide Product" data-action="hide" data-id="1" data-hidden="false">
+                                            <i class="fas fa-eye-slash"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Analytics" data-action="analytics" data-id="1">
+                                            <i class="fas fa-chart-line"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Supplier Product Example -->
+                            <tr class="supplier-product">
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=48&h=48&fit=crop" alt="Product" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>iPhone 15 Pro Max (Original)</h4>
+                                            <p>SKU: SUP-IPHONE-001</p>
+                                            <span class="badge badge-warning">Supplier Product</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-warning">Supplier</span>
+                                </td>
+                                <td>
+                                    <div class="supplier-info">
+                                        <div class="user-info">
+                                            <h4>Apple Authorized Distributor</h4>
+                                            <p>Supplier ID: SUP-67890</p>
+                                            <small>Used by: 24 sellers</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-info">
+                                        <strong>$1,099.00</strong>
+                                        <small>Wholesale Price</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="commission-info">
+                                        <strong>Platform Fee:</strong>
+                                        <small>3.5%</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="stock-badge in-stock">2,450</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Details" data-action="view" data-id="2">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Hide Product" data-action="hide" data-id="2" data-hidden="false">
+                                            <i class="fas fa-eye-slash"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Sales Analytics" data-action="sales-analytics" data-id="2">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- More Sales Product -->
+                            <tr class="sales-product">
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=48&h=48&fit=crop" alt="Product" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Wireless Gaming Headset</h4>
+                                            <p>SKU: SELL-HEADSET-042</p>
+                                            <span class="badge badge-info">Sales Product</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary">Sales</span>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="user-info">
+                                            <h4>Gaming World</h4>
+                                            <p>Seller ID: SELL-54321</p>
+                                            <small>Based on: SUP-HEADSET-009</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-info">
+                                        <strong>$299.99</strong>
+                                        <small>Cost: $199.99</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="commission-info">
+                                        <strong>$100.00</strong>
+                                        <small>33.3%</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="stock-badge low-stock">12</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Details" data-action="view" data-id="3">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Hide Product" data-action="hide" data-id="3" data-hidden="false">
+                                            <i class="fas fa-eye-slash"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Analytics" data-action="analytics" data-id="3">
+                                            <i class="fas fa-chart-line"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Pending Approval Product -->
+                            <tr class="pending-product">
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=48&h=48&fit=crop" alt="Product" class="avatar avatar-sm">
+                                        <div class="user-info">
+                                            <h4>Nike Air Max 2024</h4>
+                                            <p>SKU: PEND-NIKE-001</p>
+                                            <span class="badge badge-secondary">Pending Approval</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-secondary">Pending</span>
+                                </td>
+                                <td>
+                                    <div class="seller-info">
+                                        <div class="user-info">
+                                            <h4>Sports Central</h4>
+                                            <p>Seller ID: SELL-99999</p>
+                                            <small>Awaiting admin approval</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="price-info">
+                                        <strong>$159.99</strong>
+                                        <small>Cost: $89.99</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="commission-info">
+                                        <strong>$70.00</strong>
+                                        <small>43.8%</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="stock-badge pending">--</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge pending">Pending</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Review" data-action="review" data-id="4">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Approve" data-action="approve" data-id="4">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        <button class="btn-icon danger" title="Reject" data-action="reject" data-id="4">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    
+                <div class="table-footer">
+                    <div class="table-info">
+                            Showing 1-3 of 15,847 products
+                        </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline btn-sm" disabled>Previous</button>
+                            <button class="btn btn-primary btn-sm">1</button>
+                        <button class="btn btn-outline btn-sm">2</button>
+                        <button class="btn btn-outline btn-sm">3</button>
+                            <span>...</span>
+                        <button class="btn btn-outline btn-sm">528</button>
+                        <button class="btn btn-outline btn-sm">Next</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <style>
+        /* Product Tabs Styles */
+        .product-types-section {
+            margin-bottom: var(--space-6);
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: var(--space-3);
+            background: var(--bg-secondary);
+            padding: var(--space-2);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-primary);
+        }
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-4);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            background: var(--bg-primary);
+            color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(99, 102, 241, 0.05);
+            color: var(--text-primary);
+        }
+
+        .tab-btn i {
+            font-size: var(--font-size-sm);
+        }
+
+        .tab-count {
+            background: var(--color-primary);
+            color: white;
+            font-size: var(--font-size-xs);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-bold);
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .tab-btn:not(.active) .tab-count {
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+        }
+
+        /* Dropshipping-specific styles */
+        .seller-info, .supplier-info {
+            padding: var(--space-2) 0;
+        }
+
+        .seller-info .user-info, .supplier-info .user-info {
+            margin: 0;
+        }
+
+        .seller-info h4, .supplier-info h4 {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .seller-info p, .supplier-info p {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .seller-info small, .supplier-info small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .price-info {
+            text-align: right;
+        }
+
+        .price-info strong {
+            display: block;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .price-info small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .commission-info {
+            text-align: right;
+        }
+
+        .commission-info strong {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+            margin-bottom: var(--space-1);
+        }
+
+        .commission-info small {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        /* Product Type Row Styles */
+        .sales-product {
+            background: rgba(34, 197, 94, 0.02);
+            border-left: 3px solid var(--color-success);
+        }
+
+        .supplier-product {
+            background: rgba(245, 158, 11, 0.02);
+            border-left: 3px solid var(--color-warning);
+        }
+
+        .pending-product {
+            background: rgba(107, 114, 128, 0.02);
+            border-left: 3px solid var(--text-tertiary);
+        }
+
+        /* Stock Badge Variants */
+        .stock-badge.pending {
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+        }
+
+        /* Status Badge Variants */
+        .status-badge.pending {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--text-tertiary);
+        }
+
+        /* Badge Variants for Product Types */
+        .badge.badge-info {
+            background: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+        }
+
+        .badge.badge-secondary {
+            background: rgba(107, 114, 128, 0.1);
+            color: #6b7280;
+        }
+
+        /* Hidden product styles */
+        .product-row-hidden {
+            opacity: 0.6;
+            background: rgba(239, 68, 68, 0.02);
+            border-left: 3px solid var(--color-error);
+        }
+
+        .status-badge.inactive {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--color-error);
+        }
+
+        /* Admin action styles */
+        .btn-icon[data-hidden="true"] {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--color-success);
+        }
+
+        .btn-icon[data-hidden="true"]:hover {
+            background: rgba(34, 197, 94, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .table-header .table-actions {
+                flex-direction: column;
+                gap: var(--space-4);
+                align-items: stretch;
+            }
+
+            .table-filters {
+                flex-wrap: wrap;
+            }
+
+            .search-and-actions {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .product-tabs {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .tab-btn {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .table-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-and-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .commission-info,
+            .price-info {
+                text-align: left;
+            }
+
+            .seller-info small,
+            .supplier-info small {
+                display: none;
+            }
+        }
+    </style>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Get tab type
+                const tabType = this.dataset.tab;
+                
+                // Filter table rows based on tab
+                filterProductsByType(tabType);
+                
+                // Update page title
+                updatePageTitle(tabType);
+            });
+        });
+
+        function filterProductsByType(type) {
+            const table = document.getElementById('products-table');
+            const rows = table.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                switch(type) {
+                    case 'sales-products':
+                        row.style.display = row.classList.contains('sales-product') ? '' : 'none';
+                        break;
+                    case 'supplier-products':
+                        row.style.display = row.classList.contains('supplier-product') ? '' : 'none';
+                        break;
+                    case 'pending-approval':
+                        row.style.display = row.classList.contains('pending-product') ? '' : 'none';
+                        break;
+                    default:
+                        row.style.display = '';
+                }
+            });
+            
+            // Update table info
+            updateTableInfo(type);
+        }
+
+        function updatePageTitle(type) {
+            const titleMap = {
+                'sales-products': 'Sales Products',
+                'supplier-products': 'Supplier Products',
+                'pending-approval': 'Pending Approval'
+            };
+            
+            const titleElement = document.querySelector('.table-title h3');
+            if (titleElement) {
+                titleElement.textContent = titleMap[type] || 'All Products';
+            }
+        }
+
+        function updateTableInfo(type) {
+            const countMap = {
+                'sales-products': '1,247',
+                'supplier-products': '3,856',
+                'pending-approval': '23'
+            };
+            
+            const infoElement = document.querySelector('.table-info');
+            if (infoElement) {
+                const count = countMap[type] || '5,103';
+                infoElement.textContent = `Showing 1-10 of ${count} products`;
+            }
+        }
+
+        // Action button handlers for dropshipping-specific actions
+        document.addEventListener('click', function(e) {
+            console.log('🔍 Click event detected:', e.target);
+            
+            const actionBtn = e.target.closest('.btn-icon');
+            console.log('🔍 Action button found:', actionBtn);
+            
+            if (!actionBtn) return;
+            
+            const action = actionBtn.dataset.action;
+            const productId = actionBtn.dataset.id;
+            
+            console.log('🔍 Action:', action, 'ProductID:', productId);
+            
+            switch(action) {
+                case 'view':
+                    console.log('🔍 Calling handleProductView');
+                    handleProductView(productId);
+                    break;
+                case 'hide':
+                    console.log('🔍 Calling handleProductHide');
+                    handleProductHide(actionBtn, productId);
+                    break;
+                case 'analytics':
+                    console.log('🔍 Calling handleProductAnalytics');
+                    handleProductAnalytics(productId);
+                    break;
+                case 'sales-analytics':
+                    console.log('🔍 Calling handleSupplierAnalytics');
+                    handleSupplierAnalytics(productId);
+                    break;
+                case 'review':
+                    console.log('🔍 Calling handleProductReview');
+                    handleProductReview(productId);
+                    break;
+                case 'approve':
+                    console.log('🔍 Calling handleProductApproval');
+                    handleProductApproval(productId);
+                    break;
+                case 'reject':
+                    console.log('🔍 Calling handleProductRejection');
+                    handleProductRejection(productId);
+                    break;
+                default:
+                    console.log('🔍 Unknown action:', action);
+            }
+        });
+
+        function handleProductView(productId) {
+            console.log('Opening product details for:', productId);
+            // In real implementation, navigate to product detail page
+            window.location.href = `#/products/${productId}`;
+        }
+
+        function handleProductHide(button, productId) {
+            const isHidden = button.getAttribute('data-hidden') === 'true';
+            const action = isHidden ? 'show' : 'hide';
+            
+            if (confirm(`Are you sure you want to ${action} this product?`)) {
+                console.log(`${action.charAt(0).toUpperCase() + action.slice(1)}ing product:`, productId);
+                
+                // Update button state
+                if (isHidden) {
+                    button.setAttribute('data-hidden', 'false');
+                    button.setAttribute('title', 'Hide Product');
+                    button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                    
+                    // Update product row appearance
+                    const row = button.closest('tr');
+                    row.style.opacity = '1';
+                    row.querySelector('.status-badge').textContent = 'Active';
+                    row.querySelector('.status-badge').className = 'status-badge active';
+                } else {
+                    button.setAttribute('data-hidden', 'true');
+                    button.setAttribute('title', 'Show Product');
+                    button.innerHTML = '<i class="fas fa-eye"></i>';
+                    
+                    // Update product row appearance  
+                    const row = button.closest('tr');
+                    row.style.opacity = '0.6';
+                    row.querySelector('.status-badge').textContent = 'Hidden';
+                    row.querySelector('.status-badge').className = 'status-badge inactive';
+                }
+                
+                // In real implementation, call API to update product visibility
+                alert(`Product ${productId} has been ${isHidden ? 'shown' : 'hidden'} successfully!`);
+            }
+        }
+
+        function handleProductAnalytics(productId) {
+            console.log('Opening product analytics for:', productId);
+            // In real implementation, open analytics modal or navigate to analytics page
+            alert(`Opening sales analytics for product ${productId}`);
+        }
+
+        function handleSupplierAnalytics(productId) {
+            console.log('Opening supplier analytics for:', productId);
+            // In real implementation, show supplier product performance across all sellers
+            alert(`Opening supplier analytics showing how product ${productId} performs across all sellers`);
+        }
+
+        function handleProductReview(productId) {
+            console.log('🔍 handleProductReview called with ID:', productId);
+            
+            // Debug: Check if navigationController exists
+            console.log('🔍 window.navigationController exists:', !!window.navigationController);
+            console.log('🔍 window.adminApp exists:', !!window.adminApp);
+            
+            // Debug: Check current page
+            console.log('🔍 Current location:', window.location);
+            console.log('🔍 Current hash:', window.location.hash);
+            
+            // Try the most direct approach first - use sub-page navigation
+            try {
+                if (window.navigationController && typeof window.navigationController.navigateTo === 'function') {
+                    console.log('✅ Attempting navigation with sub-page pattern: products -> approval');
+                    console.log('✅ Calling: navigationController.navigateTo("products", "approval", "' + productId + '")');
+                    
+                    const result = window.navigationController.navigateTo('products', 'approval', productId);
+                    console.log('✅ Navigation result:', result);
+                    
+                    // Check if navigation was successful after a delay
+                    setTimeout(() => {
+                        console.log('🔍 After navigation - Current hash:', window.location.hash);
+                        console.log('🔍 Page container content:', document.querySelector('#page-content')?.innerHTML?.substring(0, 200));
+                    }, 1000);
+                    
+                } else if (window.adminApp && window.adminApp.navigationController && typeof window.adminApp.navigationController.navigateTo === 'function') {
+                    console.log('✅ Attempting navigation with window.adminApp.navigationController');
+                    const result = window.adminApp.navigationController.navigateTo('products', 'approval', productId);
+                    console.log('✅ Navigation result:', result);
+                } else {
+                    console.log('⚠️ No valid navigation controller found, using direct navigation');
+                    
+                    // Direct navigation fallback
+                    console.log('🔄 Attempting direct file load');
+                    
+                    // Get the page container
+                    const pageContainer = document.getElementById('pageContent') || document.querySelector('#page-content') || document.querySelector('.main-content');
+                    console.log('🔍 Page container found:', !!pageContainer);
+                    
+                    if (pageContainer) {
+                        // Show loading
+                        pageContainer.style.opacity = '0.5';
+                        pageContainer.innerHTML = '<div style="text-align: center; padding: 50px;"><i class="fas fa-spinner fa-spin"></i> Loading approval page...</div>';
+                        
+                        // Fetch approval page directly
+                        fetch('pages/products/approval.html')
+                            .then(response => {
+                                console.log('🌐 Direct fetch response:', response);
+                                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                                return response.text();
+                            })
+                            .then(html => {
+                                console.log('📄 Direct fetch HTML length:', html.length);
+                                
+                                // Parse and extract content
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(html, 'text/html');
+                                const dashboardContent = doc.querySelector('.dashboard-content');
+                                
+                                if (dashboardContent) {
+                                    console.log('✅ Direct navigation successful');
+                                    pageContainer.innerHTML = dashboardContent.outerHTML;
+                                    pageContainer.style.opacity = '1';
+                                    
+                                    // Update title and page data
+                                    document.title = `Product Approval #${productId} - Admin Panel`;
+                                    
+                                    // Show success message
+                                    setTimeout(() => {
+                                        alert(`Loaded product ${productId} for approval review!`);
+                                    }, 500);
+                                } else {
+                                    throw new Error('Dashboard content not found in approval page');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('❌ Direct navigation failed:', error);
+                                pageContainer.innerHTML = `
+                                    <div style="text-align: center; padding: 50px; color: red;">
+                                        <h3>Failed to load approval page</h3>
+                                        <p>Error: ${error.message}</p>
+                                        <button onclick="location.reload()">Retry</button>
+                                    </div>
+                                `;
+                                pageContainer.style.opacity = '1';
+                            });
+                    } else {
+                        console.error('❌ No page container found for direct navigation');
+                        alert('Navigation failed - page container not found');
+                    }
+                }
+            } catch (error) {
+                console.error('❌ Navigation error:', error);
+                console.error('❌ Error stack:', error.stack);
+                console.log('🔄 Using emergency fallback');
+                window.location.href = `#products-approval?id=${productId}`;
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            }
+            
+            // Show immediate feedback
+            const button = document.querySelector(`[data-action="review"][data-id="${productId}"]`);
+            if (button) {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 3000); // Increased timeout for debugging
+            }
+        }
+
+        function handleProductApproval(productId) {
+            if (confirm('Are you sure you want to approve this product?')) {
+                console.log('Approving product:', productId);
+                // In real implementation, call API to approve product
+                alert(`Product ${productId} has been approved and is now live!`);
+            }
+        }
+
+        function handleProductRejection(productId) {
+            const reason = prompt('Please provide a reason for rejection:');
+            if (reason) {
+                console.log('Rejecting product:', productId, 'Reason:', reason);
+                // In real implementation, call API to reject product with reason
+                alert(`Product ${productId} has been rejected. Seller will be notified.`);
+            }
+        }
+
+        // Initialize with sales products tab active
+        document.addEventListener('DOMContentLoaded', function() {
+            filterProductsByType('sales-products');
+            
+            // Debug: Check navigation controller availability
+            console.log('🔍 DOMContentLoaded - Checking navigation controller:');
+            console.log('🔍 window.navigationController:', window.navigationController);
+            console.log('🔍 window.adminApp:', window.adminApp);
+            console.log('🔍 window.adminApp?.navigationController:', window.adminApp?.navigationController);
+            
+            // Debug: Check review button attributes
+            const reviewButtonCheck = document.querySelector('[data-action="review"]');
+            console.log('🔍 Review button found:', reviewButtonCheck);
+            if (reviewButtonCheck) {
+                console.log('🔍 Review button action:', reviewButtonCheck.dataset.action);
+                console.log('🔍 Review button id:', reviewButtonCheck.dataset.id);
+                console.log('🔍 Review button HTML:', reviewButtonCheck.outerHTML);
+            }
+            
+            // Debug: Check all action buttons
+            const allActionButtons = document.querySelectorAll('[data-action]');
+            console.log('🔍 All action buttons found:', allActionButtons.length);
+            allActionButtons.forEach((btn, index) => {
+                console.log(`🔍 Button ${index}:`, btn.dataset.action, btn.dataset.id);
+            });
+            
+            // Debug: Add direct click handler to review button for testing
+            const reviewButtonDirect = document.querySelector('[data-action="review"]');
+            if (reviewButtonDirect) {
+                console.log('🔍 Adding direct click handler to review button');
+                reviewButtonDirect.addEventListener('click', function(e) {
+                    console.log('🔍 DIRECT Review button clicked!', e);
+                    console.log('🔍 DIRECT Button element:', this);
+                    console.log('🔍 DIRECT Action:', this.dataset.action);
+                    console.log('🔍 DIRECT ID:', this.dataset.id);
+                    
+                    // Call handleProductReview directly
+                    const productId = this.dataset.id;
+                    if (productId) {
+                        console.log('🔍 DIRECT Calling handleProductReview with ID:', productId);
+                        handleProductReview(productId);
+                    } else {
+                        console.error('❌ DIRECT No product ID found');
+                    }
+                });
+            } else {
+                console.error('❌ Review button not found for direct handler');
+            }
+            
+            // Auto-switch to pending approval tab to make review button visible
+            setTimeout(() => {
+                console.log('🔍 Auto-switching to pending approval tab for testing');
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                document.querySelector('[data-tab="pending-approval"]').classList.add('active');
+                filterProductsByType('pending-approval');
+                updatePageTitle('pending-approval');
+                
+                // Check review button again after tab switch
+                const reviewAfterSwitch = document.querySelector('[data-action="review"]');
+                console.log('🔍 Review button after tab switch:', reviewAfterSwitch);
+                if (reviewAfterSwitch) {
+                    console.log('🔍 Review button is now visible and ready');
+                }
+            }, 1000);
+            
+            // Handle manage approvals button
+            document.querySelector('[data-action="manage-approval"]')?.addEventListener('click', function() {
+                // Switch to pending approval tab
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                document.querySelector('[data-tab="pending-approval"]').classList.add('active');
+                filterProductsByType('pending-approval');
+                updatePageTitle('pending-approval');
+            });
+        });
+        
+        // Also check when page becomes visible
+        document.addEventListener('pageshow', function() {
+            console.log('🔍 PageShow - Checking navigation controller:');
+            console.log('🔍 window.navigationController:', window.navigationController);
+            console.log('🔍 window.adminApp:', window.adminApp);
+        });
+        
+        // Check when admin app is loaded
+        document.addEventListener('pageLoaded', function(e) {
+            console.log('🔍 PageLoaded event:', e.detail);
+            console.log('🔍 window.navigationController:', window.navigationController);
+            console.log('🔍 window.adminApp:', window.adminApp);
+        });
+    </script>
+</body>
+</html> 

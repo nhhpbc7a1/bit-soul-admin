@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Category - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="create-page">
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Create New Category</h1>
+                        <p class="page-subtitle">Add a new product category to organize your inventory</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Categories</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-container">
+                <form id="categoryCreateForm" class="create-form">
+                    <div class="form-grid">
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Category Icon</label>
+                                <div class="file-upload">
+                                    <div class="upload-area">
+                                        <i class="fas fa-image"></i>
+                                        <p>Click to upload category icon</p>
+                                        <small>PNG, JPG, SVG up to 2MB</small>
+                                        <input type="file" name="categoryIcon" accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Category Name *</label>
+                                <input type="text" name="categoryName" class="form-input" placeholder="Enter category name" required>
+                                <small class="form-help">This will be displayed to customers</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Category Description</label>
+                                <textarea name="description" class="form-textarea" placeholder="Describe what products belong to this category" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Category Hierarchy</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Parent Category</label>
+                                <select name="parentCategory" class="form-select">
+                                    <option value="">None (Top Level Category)</option>
+                                    <option value="1">Electronics</option>
+                                    <option value="4">Fashion & Clothing</option>
+                                    <option value="5">Home & Garden</option>
+                                    <option value="6">Sports & Outdoors</option>
+                                    <option value="7">Books & Media</option>
+                                </select>
+                                <small class="form-help">Leave empty to create a top-level category</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Category Level</label>
+                                <div class="category-level-info">
+                                    <div class="level-indicator">
+                                        <span class="level-badge level-1" id="levelBadge">Level 1 (Top Level)</span>
+                                    </div>
+                                    <small class="form-help">Maximum 3 levels deep</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" data-action="back">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Create Category</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update category level indicator
+        document.querySelector('select[name="parentCategory"]').addEventListener('change', function(e) {
+            const levelBadge = document.getElementById('levelBadge');
+            if (e.target.value === '') {
+                levelBadge.textContent = 'Level 1 (Top Level)';
+                levelBadge.className = 'level-badge level-1';
+            } else {
+                levelBadge.textContent = 'Level 2 (Sub Category)';
+                levelBadge.className = 'level-badge level-2';
+            }
+        });
+
+        // Form submission
+        document.getElementById('categoryCreateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Handle form submission
+            alert('Category created successfully!');
+        });
+    </script>
+</body>
+</html> 

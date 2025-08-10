@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Configuration - Admin Panel</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        Manage Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📂</span>
+                        Manage Categories
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        Manage Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🛒</span>
+                        Manage Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💎</span>
+                        Service Packages
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💳</span>
+                        Payments
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        System Config
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🤖</span>
+                        AI Operations
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🎨</span>
+                        UI & Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        Policies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        Complaints
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1>System Configuration</h1>
+                    <p>Configure core business rules, payment gateways and technical settings</p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <button class="notification-btn">🔔</button>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin Profile">
+                        <span>Admin User</span>
+                        <button class="dropdown-btn">▼</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- System Configuration Content -->
+            <div class="dashboard-content">
+                <!-- Configuration Sections -->
+                <div class="config-sections">
+                    <!-- Business Rules Section -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h3>💼 Business Rules</h3>
+                            <p>Configure commission rates and platform fees</p>
+                        </div>
+                        <div class="config-form">
+                            <div class="form-group">
+                                <label class="form-label">Default Commission Rate (%)</label>
+                                <input type="number" class="form-input" value="15" min="0" max="100" step="0.1">
+                                <span class="help-text">Commission taken from each sale</span>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Listing Fee ($)</label>
+                                    <input type="number" class="form-input" value="2.50" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Withdrawal Fee ($)</label>
+                                    <input type="number" class="form-input" value="1.00" min="0" step="0.01">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Minimum Withdrawal Amount ($)</label>
+                                <input type="number" class="form-input" value="50.00" min="0" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Gateway Section -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h3>💳 Payment Gateway Integrations</h3>
+                            <p>Configure payment methods and gateway settings</p>
+                        </div>
+                        <div class="gateway-configs">
+                            <!-- VNPay Configuration -->
+                            <div class="gateway-card">
+                                <div class="gateway-header">
+                                    <div class="gateway-info">
+                                        <div class="gateway-logo">🏦</div>
+                                        <div class="gateway-details">
+                                            <h4>VNPay</h4>
+                                            <p>Vietnam's leading payment gateway</p>
+                                        </div>
+                                    </div>
+                                    <div class="gateway-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="gateway-settings">
+                                    <div class="form-group">
+                                        <label class="form-label">TMN Code</label>
+                                        <input type="text" class="form-input" value="VNPAY123" placeholder="Enter TMN Code">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Hash Secret</label>
+                                        <input type="password" class="form-input" value="••••••••••••••••" placeholder="Enter Hash Secret">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MoMo Configuration -->
+                            <div class="gateway-card">
+                                <div class="gateway-header">
+                                    <div class="gateway-info">
+                                        <div class="gateway-logo">📱</div>
+                                        <div class="gateway-details">
+                                            <h4>MoMo</h4>
+                                            <p>Mobile payment solution</p>
+                                        </div>
+                                    </div>
+                                    <div class="gateway-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="gateway-settings">
+                                    <div class="form-group">
+                                        <label class="form-label">Partner Code</label>
+                                        <input type="text" class="form-input" placeholder="Enter Partner Code">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Access Key</label>
+                                        <input type="password" class="form-input" placeholder="Enter Access Key">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ZaloPay Configuration -->
+                            <div class="gateway-card">
+                                <div class="gateway-header">
+                                    <div class="gateway-info">
+                                        <div class="gateway-logo">💰</div>
+                                        <div class="gateway-details">
+                                            <h4>ZaloPay</h4>
+                                            <p>Zalo integrated payment</p>
+                                        </div>
+                                    </div>
+                                    <div class="gateway-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="gateway-settings">
+                                    <div class="form-group">
+                                        <label class="form-label">App ID</label>
+                                        <input type="text" class="form-input" placeholder="Enter App ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Key</label>
+                                        <input type="password" class="form-input" placeholder="Enter Key">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Settings Section -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h3>🔧 Technical & Operational Settings</h3>
+                            <p>Configure system-wide technical parameters</p>
+                        </div>
+                        <div class="config-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Default Language</label>
+                                    <select class="form-select">
+                                        <option value="en" selected>English</option>
+                                        <option value="vi">Vietnamese</option>
+                                        <option value="zh">Chinese</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Default Currency</label>
+                                    <select class="form-select">
+                                        <option value="USD" selected>USD ($)</option>
+                                        <option value="VND">VND (₫)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">SMTP Server Settings</label>
+                                <div class="smtp-settings">
+                                    <input type="text" class="form-input" placeholder="SMTP Host" value="smtp.gmail.com">
+                                    <input type="number" class="form-input" placeholder="Port" value="587">
+                                    <input type="email" class="form-input" placeholder="Username" value="noreply@platform.com">
+                                    <input type="password" class="form-input" placeholder="Password" value="••••••••">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Session Timeout (minutes)</label>
+                                    <input type="number" class="form-input" value="30" min="5" max="1440">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Max File Upload (MB)</label>
+                                    <input type="number" class="form-input" value="10" min="1" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audit Log Section -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h3>📋 Configuration Audit Log</h3>
+                            <p>Track all configuration changes</p>
+                        </div>
+                        <div class="audit-log">
+                            <div class="log-item">
+                                <div class="log-icon">⚙️</div>
+                                <div class="log-details">
+                                    <div class="log-action">Commission rate updated from 12% to 15%</div>
+                                    <div class="log-meta">By Admin User • 2024-01-15 14:30</div>
+                                </div>
+                            </div>
+                            <div class="log-item">
+                                <div class="log-icon">💳</div>
+                                <div class="log-details">
+                                    <div class="log-action">VNPay gateway enabled</div>
+                                    <div class="log-meta">By Admin User • 2024-01-14 10:15</div>
+                                </div>
+                            </div>
+                            <div class="log-item">
+                                <div class="log-icon">🔧</div>
+                                <div class="log-details">
+                                    <div class="log-action">SMTP settings updated</div>
+                                    <div class="log-meta">By Admin User • 2024-01-13 16:45</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="save-section">
+                    <button class="btn btn-primary">💾 Save All Changes</button>
+                    <button class="btn btn-secondary">🔄 Reset to Defaults</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .config-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .config-section {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .section-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .section-header p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .config-form {
+            padding: 24px;
+        }
+
+        .gateway-configs {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gateway-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .gateway-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .gateway-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gateway-logo {
+            width: 40px;
+            height: 40px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .gateway-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .gateway-details p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #10b981;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .gateway-settings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .smtp-settings {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr 2fr;
+            gap: 12px;
+        }
+
+        .audit-log {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .log-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .log-icon {
+            width: 32px;
+            height: 32px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .log-action {
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .log-meta {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .save-section {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .gateway-settings {
+                grid-template-columns: 1fr;
+            }
+
+            .smtp-settings {
+                grid-template-columns: 1fr;
+            }
+
+            .save-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html> 

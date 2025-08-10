@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="detail-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Order Details</h1>
+                        <p class="page-subtitle">Monitor order status and mediate between parties</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Orders</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Details -->
+            <div class="detail-container">
+                <div class="detail-grid">
+                    <!-- Main Content -->
+                    <div class="detail-main">
+                        <!-- Order Overview -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Order Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <!-- Order Header -->
+                                <div class="order-info-section">
+                                    <div class="order-id-large">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <div class="order-details">
+                                            <h2>Order #ORD-2024-001</h2>
+                                            <div class="order-badges">
+                                                <span class="badge badge-success">Delivered</span>
+                                                <span class="badge badge-primary">Paid</span>
+                                                <span class="badge badge-warning">High Priority</span>
+                                            </div>
+                                            <p class="order-date">Placed on March 15, 2024 at 2:30 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Basic Info Grid -->
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Order ID</label>
+                                        <span>#ORD-2024-001</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Order Status</label>
+                                        <span class="badge badge-success">Delivered</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Payment Status</label>
+                                        <span class="badge badge-primary">Paid</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Payment Method</label>
+                                        <span>Credit Card (•••• 4532)</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Total Amount</label>
+                                        <span class="order-total">$1,247.99</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Order Source</label>
+                                        <span>Website</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Created Date</label>
+                                        <span>March 15, 2024</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Last Updated</label>
+                                        <span>March 20, 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Information -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Customer Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="customer-info-section">
+                                    <div class="customer-avatar-large">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b68b2500?w=80&h=80&fit=crop&crop=face" alt="Customer">
+                                    </div>
+                                    <div class="customer-info-large">
+                                        <h3>Sarah Johnson</h3>
+                                        <p>sarah@example.com</p>
+                                        <p>+1 (555) 123-4567</p>
+                                        <div class="customer-badges">
+                                            <span class="badge badge-success">Verified</span>
+                                            <span class="badge badge-warning">VIP</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="address-info">
+                                    <div class="address-section">
+                                        <h4>Shipping Address</h4>
+                                        <div class="address">
+                                            <p>123 Main Street, Apt 4B</p>
+                                            <p>New York, NY 10001</p>
+                                            <p>United States</p>
+                                        </div>
+                                    </div>
+                                    <div class="address-section">
+                                        <h4>Billing Address</h4>
+                                        <div class="address">
+                                            <p>Same as shipping address</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seller Information -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Seller Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="seller-info-section">
+                                    <div class="seller-avatar-large">
+                                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=80&h=80&fit=crop" alt="Seller">
+                                    </div>
+                                    <div class="seller-info-large">
+                                        <h3>TechStore Vietnam</h3>
+                                        <p>tech.vietnam@store.com</p>
+                                        <p>+84 (0)28 1234 5678</p>
+                                        <div class="seller-badges">
+                                            <span class="badge badge-success">Verified Seller</span>
+                                            <span class="badge badge-primary">Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="seller-stats">
+                                    <div class="stat-item">
+                                        <label>Seller ID</label>
+                                        <span>SELL-12345</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Rating</label>
+                                        <span>4.8/5 ⭐ (324 reviews)</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Total Orders</label>
+                                        <span>1,247 orders</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Commission Rate</label>
+                                        <span>16.1% (Negotiated)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Supplier Information -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Supplier Information</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="supplier-info-section">
+                                    <div class="supplier-avatar-large">
+                                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=80&h=80&fit=crop" alt="Supplier">
+                                    </div>
+                                    <div class="supplier-info-large">
+                                        <h3>Apple Authorized Distributor</h3>
+                                        <p>wholesale@appledist.com</p>
+                                        <p>+1 (800) 555-APPLE</p>
+                                        <div class="supplier-badges">
+                                            <span class="badge badge-warning">Premium Supplier</span>
+                                            <span class="badge badge-info">Electronics</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="supplier-stats">
+                                    <div class="stat-item">
+                                        <label>Supplier ID</label>
+                                        <span>SUP-67890</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Fulfillment Time</label>
+                                        <span>24-48 hours</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Success Rate</label>
+                                        <span>99.2%</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <label>Platform Fee</label>
+                                        <span>3.5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Items -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Order Items</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="order-items">
+                                    <div class="order-item">
+                                        <div class="item-image">
+                                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=80&h=80&fit=crop" alt="Product">
+                                        </div>
+                                        <div class="item-details">
+                                            <h4>iPhone 15 Pro Max</h4>
+                                            <p>Color: Natural Titanium, Storage: 256GB</p>
+                                            <span class="item-sku">SKU: IPHONE-15-PRO-MAX-256</span>
+                                        </div>
+                                        <div class="item-quantity">
+                                            <span>Qty: 1</span>
+                                        </div>
+                                        <div class="item-price">
+                                            <span class="unit-price">$1,199.00</span>
+                                            <span class="total-price">$1,199.00</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="order-item">
+                                        <div class="item-image">
+                                            <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=80&h=80&fit=crop" alt="Product">
+                                        </div>
+                                        <div class="item-details">
+                                            <h4>Wireless Charging Stand</h4>
+                                            <p>Fast wireless charging for iPhone</p>
+                                            <span class="item-sku">SKU: WCS-FAST-001</span>
+                                        </div>
+                                        <div class="item-quantity">
+                                            <span>Qty: 1</span>
+                                        </div>
+                                        <div class="item-price">
+                                            <span class="unit-price">$39.99</span>
+                                            <span class="total-price">$39.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Order Summary -->
+                                <div class="order-summary">
+                                    <div class="summary-row">
+                                        <span>Subtotal (Customer Paid):</span>
+                                        <span>$1,238.99</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Tax:</span>
+                                        <span>$99.12</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Shipping:</span>
+                                        <span>$9.99</span>
+                                    </div>
+                                    <div class="summary-row discount">
+                                        <span>Discount (VIP10):</span>
+                                        <span>-$99.11</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Total Customer Payment:</span>
+                                        <span>$1,247.99</span>
+                                    </div>
+
+                                    <!-- Commission Breakdown -->
+                                    <div class="commission-breakdown-section" id="financial-breakdown">
+                                        <h4>Financial Breakdown</h4>
+                                        <div class="summary-row supplier-cost">
+                                            <span>Supplier Cost:</span>
+                                            <span>$1,099.00</span>
+                                        </div>
+                                        <div class="summary-row platform-fee">
+                                            <span>Platform Fee (3.5%):</span>
+                                            <span>$43.68</span>
+                                        </div>
+                                        <div class="summary-row seller-commission">
+                                            <span>Seller Commission (16.1%):</span>
+                                            <span>$200.00</span>
+                                        </div>
+                                        <div class="summary-row processing-fee">
+                                            <span>Payment Processing (2.9%):</span>
+                                            <span>$36.19</span>
+                                        </div>
+                                        <div class="summary-row profit">
+                                            <span>Platform Profit:</span>
+                                            <span>$7.49</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Flow -->
+                                    <div class="payment-flow-section">
+                                        <h4>Payment Flow</h4>
+                                        <div class="flow-item customer-payment">
+                                            <div class="flow-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="flow-info">
+                                                <span class="flow-entity">Customer</span>
+                                                <span class="flow-amount">Paid $1,247.99</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flow-arrow">↓</div>
+                                        
+                                        <div class="flow-item platform-hold">
+                                            <div class="flow-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <div class="flow-info">
+                                                <span class="flow-entity">Platform</span>
+                                                <span class="flow-amount">Holds $1,247.99</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flow-splits">
+                                            <div class="flow-split">
+                                                <div class="flow-item supplier-payment">
+                                                    <div class="flow-icon">
+                                                        <i class="fas fa-truck"></i>
+                                                    </div>
+                                                    <div class="flow-info">
+                                                        <span class="flow-entity">Supplier</span>
+                                                        <span class="flow-amount">Gets $1,099.00</span>
+                                                        <span class="flow-status">Paid ✓</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flow-split">
+                                                <div class="flow-item seller-payment">
+                                                    <div class="flow-icon">
+                                                        <i class="fas fa-store"></i>
+                                                    </div>
+                                                    <div class="flow-info">
+                                                        <span class="flow-entity">Seller</span>
+                                                        <span class="flow-amount">Gets $200.00</span>
+                                                        <span class="flow-status">Pending</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Timeline -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Order Timeline</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="timeline">
+                                    <div class="timeline-item completed">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <h4>Order Delivered</h4>
+                                            <p>Package delivered to customer</p>
+                                            <span class="timeline-date">March 20, 2024 - 3:45 PM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item completed">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <h4>Order Shipped</h4>
+                                            <p>Tracking: UPS-123456789</p>
+                                            <span class="timeline-date">March 17, 2024 - 9:30 AM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item completed">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-box"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <h4>Order Processed</h4>
+                                            <p>Items prepared for shipping</p>
+                                            <span class="timeline-date">March 16, 2024 - 2:15 PM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item completed">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <h4>Payment Confirmed</h4>
+                                            <p>Payment processed successfully</p>
+                                            <span class="timeline-date">March 15, 2024 - 2:35 PM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item completed">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <h4>Order Placed</h4>
+                                            <p>Order created by customer</p>
+                                            <span class="timeline-date">March 15, 2024 - 2:30 PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="detail-sidebar">
+                        <!-- Admin Actions -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Admin Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-list">
+                                    <a href="#" class="action-btn">
+                                        <i class="fas fa-print"></i>
+                                        <span>Print Invoice</span>
+                                    </a>
+                                    <a href="#shipping-details" class="action-btn">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <span>Track Shipment</span>
+                                    </a>
+                                    <a href="#financial-breakdown" class="action-btn">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Commission Details</span>
+                                    </a>
+                                    <a href="#" class="action-btn warning" data-action="suspend" data-id="1">
+                                        <i class="fas fa-pause"></i>
+                                        <span>Suspend Order</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Information -->
+                        <div class="detail-card" id="shipping-details">
+                            <div class="card-header">
+                                <h3>Shipping Details</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="shipping-info">
+                                    <div class="info-item">
+                                        <label>Shipping Method</label>
+                                        <span>Express Shipping</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Carrier</label>
+                                        <span>UPS</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Tracking Number</label>
+                                        <span>UPS-123456789</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Estimated Delivery</label>
+                                        <span>March 20, 2024</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Actual Delivery</label>
+                                        <span>March 20, 2024</span>
+                                    </div>
+                                </div>
+
+                                <!-- Shipment Tracking -->
+                                <div class="shipment-tracking">
+                                    <h4>Live Shipment Tracking</h4>
+                                    <ul class="tracking-steps">
+                                        <li class="step completed">
+                                            <span class="step-time">Mar 17, 09:30</span>
+                                            <span class="step-text">Picked up by UPS at Warehouse A</span>
+                                        </li>
+                                        <li class="step completed">
+                                            <span class="step-time">Mar 18, 08:10</span>
+                                            <span class="step-text">Arrived at UPS Facility - New Jersey</span>
+                                        </li>
+                                        <li class="step completed">
+                                            <span class="step-time">Mar 19, 14:45</span>
+                                            <span class="step-text">Out for delivery</span>
+                                        </li>
+                                        <li class="step current">
+                                            <span class="step-time">Mar 20, 15:45</span>
+                                            <span class="step-text">Delivered - Signed by Sarah J.</span>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-text" href="#">Open carrier tracking page</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Notes -->
+                        <div class="detail-card">
+                            <div class="card-header">
+                                <h3>Order Notes</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="notes-section">
+                                    <div class="note-item">
+                                        <div class="note-header">
+                                            <span class="note-author">Admin</span>
+                                            <span class="note-date">March 15, 2024</span>
+                                        </div>
+                                        <p class="note-content">Customer requested expedited shipping due to gift occasion.</p>
+                                    </div>
+                                    <div class="note-item">
+                                        <div class="note-header">
+                                            <span class="note-author">System</span>
+                                            <span class="note-date">March 17, 2024</span>
+                                        </div>
+                                        <p class="note-content">Order automatically processed and shipped.</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-plus"></i>
+                                    Add Note
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Order-specific styles */
+        .order-info-section {
+            display: flex;
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .order-id-large {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .order-id-large i {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-2xl);
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .order-details h2 {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+        }
+
+        .order-badges {
+            display: flex;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+
+        .order-date {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            margin: 0;
+        }
+
+        .order-total {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+        }
+
+        /* Customer Info */
+        .customer-info-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .customer-avatar-large img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-primary);
+        }
+
+        .customer-info-large h3 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .customer-info-large p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .customer-badges {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        .address-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-6);
+        }
+
+        .address-section h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .address p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        /* Seller Info */
+        .seller-info-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .seller-avatar-large img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-primary);
+        }
+
+        .seller-info-large h3 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .seller-info-large p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .seller-badges {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        .seller-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-item label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-item span {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+
+        /* Supplier Info */
+        .supplier-info-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .supplier-avatar-large img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-primary);
+        }
+
+        .supplier-info-large h3 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .supplier-info-large p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .supplier-badges {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        .supplier-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+
+        /* Order Items */
+        .order-items {
+            margin-bottom: var(--space-6);
+        }
+
+        .order-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto auto;
+            gap: var(--space-4);
+            align-items: center;
+            padding: var(--space-4);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+        }
+
+        .item-image img {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            border: 1px solid var(--border-primary);
+        }
+
+        .item-details h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .item-details p {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .item-sku {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .item-quantity {
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .item-price {
+            text-align: right;
+        }
+
+        .unit-price {
+            display: block;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .total-price {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+        }
+
+        /* Order Summary */
+        .order-summary {
+            border-top: 1px solid var(--border-primary);
+            padding-top: var(--space-4);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .summary-row.discount {
+            color: var(--color-success);
+        }
+
+        .summary-row.total {
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-base);
+            border-top: 1px solid var(--border-primary);
+            padding-top: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-4);
+            padding-left: var(--space-12);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+        }
+
+        .timeline-item.completed .timeline-icon {
+            background: var(--color-success);
+            border-color: var(--color-success);
+            color: white;
+        }
+
+        .timeline-content h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .timeline-content p {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+
+        .timeline-date {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        /* Notes */
+        .notes-section {
+            margin-bottom: var(--space-4);
+        }
+
+        .note-item {
+            padding: var(--space-3);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+        }
+
+        .note-author {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+
+        .note-date {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+        }
+
+        .note-content {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* New styles for payment flow */
+        .payment-flow-section {
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .flow-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-2);
+        }
+
+        .flow-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+        }
+
+        .flow-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flow-entity {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+
+        .flow-amount {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .flow-arrow {
+            font-size: var(--font-size-lg);
+            color: var(--text-tertiary);
+            margin: 0 var(--space-3);
+        }
+
+        .flow-splits {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .flow-split {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .flow-item.supplier-payment .flow-status {
+            color: var(--color-success);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .flow-item.seller-payment .flow-status {
+            color: var(--text-warning);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* New styles for payment flow */
+        .commission-breakdown-section {
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .commission-breakdown-section h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .summary-row.supplier-cost {
+            color: var(--color-error);
+        }
+
+        .summary-row.platform-fee {
+            color: var(--color-primary);
+        }
+
+        .summary-row.seller-commission {
+            color: var(--color-success);
+        }
+
+        .summary-row.processing-fee {
+            color: var(--text-secondary);
+        }
+
+        .summary-row.profit {
+            color: var(--color-warning);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Shipment tracking */
+        .shipment-tracking { 
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-primary);
+        }
+        .tracking-steps { 
+            list-style: none; 
+            padding: 0; 
+            margin: var(--space-3) 0 var(--space-2);
+        }
+        .tracking-steps .step { 
+            display: flex; 
+            gap: var(--space-3); 
+            padding: var(--space-2) 0; 
+            border-bottom: 1px dashed var(--border-primary);
+            font-size: var(--font-size-sm);
+        }
+        .tracking-steps .step.completed { color: var(--text-secondary); }
+        .tracking-steps .step.current { color: var(--text-primary); font-weight: var(--font-weight-medium); }
+
+        @media (max-width: 768px) {
+            .order-info-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .customer-info-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .address-info {
+                grid-template-columns: 1fr;
+            }
+
+            .order-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html> 

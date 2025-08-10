@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Service Packages - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../admin-styles.css">
+    <link rel="stylesheet" href="../../styles/shared-pages.css">
+</head>
+<body>
+    <div class="dashboard-content">
+        <div class="packages-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div class="page-header-text">
+                        <h1 class="page-title">Service Package Management</h1>
+                        <p class="page-subtitle">Create and manage subscription packages for sellers and suppliers</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Package Analytics</span>
+                        </button>
+                        <button class="btn btn-primary" data-action="create">
+                            <i class="fas fa-plus"></i>
+                            <span>Create New Package</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Packages Grid -->
+            <section class="packages-section">
+                <div class="packages-grid">
+                    <!-- Basic Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-title">
+                                <h3>Basic Seller</h3>
+                                <span class="package-badge free">Free</span>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$0</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>✅ Up to 10 products</li>
+                                <li>✅ Basic analytics</li>
+                                <li>✅ Email support</li>
+                                <li>❌ Priority listing</li>
+                                <li>❌ Advanced analytics</li>
+                                <li>❌ Marketing tools</li>
+                            </ul>
+                        </div>
+                        <div class="package-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Subscribers</span>
+                                <span class="stat-value">156</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">$0</span>
+                            </div>
+                        </div>
+                        <div class="package-actions">
+                            <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                            <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                        </div>
+                    </div>
+
+                    <!-- Pro Package -->
+                    <div class="package-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="package-header">
+                            <div class="package-title">
+                                <h3>Pro Seller</h3>
+                                <span class="package-badge pro">Pro</span>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$29</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>✅ Up to 100 products</li>
+                                <li>✅ Advanced analytics</li>
+                                <li>✅ Priority support</li>
+                                <li>✅ Priority listing</li>
+                                <li>✅ Marketing tools</li>
+                                <li>❌ Custom branding</li>
+                            </ul>
+                        </div>
+                        <div class="package-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Subscribers</span>
+                                <span class="stat-value">672</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">$19,488</span>
+                            </div>
+                        </div>
+                        <div class="package-actions">
+                            <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                            <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-title">
+                                <h3>Enterprise</h3>
+                                <span class="package-badge enterprise">Enterprise</span>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$99</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>✅ Unlimited products</li>
+                                <li>✅ Advanced analytics</li>
+                                <li>✅ 24/7 phone support</li>
+                                <li>✅ Priority listing</li>
+                                <li>✅ Marketing tools</li>
+                                <li>✅ Custom branding</li>
+                            </ul>
+                        </div>
+                        <div class="package-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Subscribers</span>
+                                <span class="stat-value">419</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">$41,481</span>
+                            </div>
+                        </div>
+                        <div class="package-actions">
+                            <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                            <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <style>
+        /* Package-specific styles */
+        .packages-section {
+            margin-top: var(--space-8);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-card.popular {
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .package-header {
+            margin-bottom: 24px;
+        }
+
+        .package-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .package-title h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .package-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .package-badge.free {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .package-badge.pro {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .package-badge.enterprise {
+            background: #ede9fe;
+            color: #7c3aed;
+        }
+
+        .package-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .package-price .price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .package-price .period {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .package-features {
+            margin-bottom: 24px;
+        }
+
+        .package-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .package-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .package-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-label {
+            display: block;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .stat-item .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .package-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        /* Stat Card Color Variations */
+        .stat-card.packages-total .stat-icon {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+
+        .stat-card.packages-active .stat-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .stat-card.packages-subscribers .stat-icon {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+
+        .stat-card.packages-revenue .stat-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</body>
+</html> 

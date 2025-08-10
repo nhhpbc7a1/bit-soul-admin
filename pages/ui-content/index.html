@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI & Content Management - Admin Panel</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        Manage Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📂</span>
+                        Manage Categories
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        Manage Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🛒</span>
+                        Manage Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💎</span>
+                        Service Packages
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💳</span>
+                        Payments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        System Config
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🤖</span>
+                        AI Operations
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🎨</span>
+                        UI & Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        Policies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        Complaints
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1>UI & Content Management</h1>
+                    <p>Manage website appearance, banners, and static content</p>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <button class="notification-btn">🔔</button>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin Profile">
+                        <span>Admin User</span>
+                        <button class="dropdown-btn">▼</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- UI & Content Management -->
+            <div class="dashboard-content">
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-tab="banners">🖼️ Homepage Banners</button>
+                    <button class="tab-btn" data-tab="pages">📄 Static Pages</button>
+                    <button class="tab-btn" data-tab="branding">🎨 Branding</button>
+                    <button class="tab-btn" data-tab="footer">📍 Footer Content</button>
+                </div>
+
+                <!-- Homepage Banners Section -->
+                <div class="content-section" id="banners-tab">
+                    <div class="section-header">
+                        <h3>Homepage Banners</h3>
+                        <button class="btn btn-primary">➕ Add New Banner</button>
+                    </div>
+                    
+                    <div class="banners-grid">
+                        <!-- Hero Banner -->
+                        <div class="banner-card hero">
+                            <div class="banner-preview">
+                                <img src="https://via.placeholder.com/600x200" alt="Hero Banner">
+                                <div class="banner-overlay">
+                                    <div class="banner-text">
+                                        <h4>Welcome to Our Platform</h4>
+                                        <p>Discover amazing products from trusted sellers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>Hero Banner</h4>
+                                    <div class="banner-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+                                <div class="banner-details">
+                                    <div class="detail-item">
+                                        <span>Position</span>
+                                        <span>Hero Section</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Click Rate</span>
+                                        <span>4.2%</span>
+                                    </div>
+                                </div>
+                                <div class="banner-actions">
+                                    <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                    <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                                    <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promotional Banner -->
+                        <div class="banner-card">
+                            <div class="banner-preview">
+                                <img src="https://via.placeholder.com/300x150" alt="Promo Banner">
+                                <div class="banner-overlay">
+                                    <div class="banner-text">
+                                        <h4>50% Off Electronics</h4>
+                                        <p>Limited time offer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>Electronics Promo</h4>
+                                    <div class="banner-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+                                <div class="banner-details">
+                                    <div class="detail-item">
+                                        <span>Position</span>
+                                        <span>Sidebar</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Click Rate</span>
+                                        <span>6.8%</span>
+                                    </div>
+                                </div>
+                                <div class="banner-actions">
+                                    <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                    <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                                    <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seasonal Banner -->
+                        <div class="banner-card">
+                            <div class="banner-preview">
+                                <img src="https://via.placeholder.com/300x150" alt="Seasonal Banner">
+                                <div class="banner-overlay">
+                                    <div class="banner-text">
+                                        <h4>Winter Sale</h4>
+                                        <p>Cozy deals for the season</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>Winter Collection</h4>
+                                    <div class="banner-status">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Inactive</span>
+                                    </div>
+                                </div>
+                                <div class="banner-details">
+                                    <div class="detail-item">
+                                        <span>Position</span>
+                                        <span>Category Page</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Click Rate</span>
+                                        <span>2.1%</span>
+                                    </div>
+                                </div>
+                                <div class="banner-actions">
+                                    <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                    <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                                    <button class="btn btn-danger btn-sm">🗑️ Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Static Pages Section -->
+                <div class="content-section" id="pages-tab" style="display: none;">
+                    <div class="section-header">
+                        <h3>Static Pages</h3>
+                        <button class="btn btn-primary">➕ Add New Page</button>
+                    </div>
+                    
+                    <div class="pages-list">
+                        <div class="page-item">
+                            <div class="page-info">
+                                <div class="page-icon">ℹ️</div>
+                                <div class="page-details">
+                                    <h4>About Us</h4>
+                                    <p>Company information and history</p>
+                                    <span class="page-url">/about</span>
+                                </div>
+                            </div>
+                            <div class="page-stats">
+                                <div class="stat-item">
+                                    <span>Last Updated</span>
+                                    <span>2024-01-10</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Page Views</span>
+                                    <span>1,247</span>
+                                </div>
+                            </div>
+                            <div class="page-actions">
+                                <button class="btn btn-secondary btn-sm">👁️ Preview</button>
+                                <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            </div>
+                        </div>
+
+                        <div class="page-item">
+                            <div class="page-info">
+                                <div class="page-icon">📞</div>
+                                <div class="page-details">
+                                    <h4>Contact Us</h4>
+                                    <p>Contact information and support</p>
+                                    <span class="page-url">/contact</span>
+                                </div>
+                            </div>
+                            <div class="page-stats">
+                                <div class="stat-item">
+                                    <span>Last Updated</span>
+                                    <span>2024-01-08</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Page Views</span>
+                                    <span>892</span>
+                                </div>
+                            </div>
+                            <div class="page-actions">
+                                <button class="btn btn-secondary btn-sm">👁️ Preview</button>
+                                <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            </div>
+                        </div>
+
+                        <div class="page-item">
+                            <div class="page-info">
+                                <div class="page-icon">❓</div>
+                                <div class="page-details">
+                                    <h4>FAQ</h4>
+                                    <p>Frequently asked questions</p>
+                                    <span class="page-url">/faq</span>
+                                </div>
+                            </div>
+                            <div class="page-stats">
+                                <div class="stat-item">
+                                    <span>Last Updated</span>
+                                    <span>2024-01-12</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Page Views</span>
+                                    <span>2,156</span>
+                                </div>
+                            </div>
+                            <div class="page-actions">
+                                <button class="btn btn-secondary btn-sm">👁️ Preview</button>
+                                <button class="btn btn-secondary btn-sm">✏️ Edit</button>
+                                <button class="btn btn-secondary btn-sm">📊 Analytics</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="save-section">
+                    <button class="btn btn-primary">💾 Save All Changes</button>
+                    <button class="btn btn-secondary">👁️ Preview Website</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .banners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .banner-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .banner-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner-card.hero {
+            grid-column: 1 / -1;
+        }
+
+        .banner-preview {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .banner-card.hero .banner-preview {
+            height: 250px;
+        }
+
+        .banner-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-text {
+            text-align: center;
+            color: white;
+        }
+
+        .banner-text h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .banner-text p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .banner-info {
+            padding: 20px;
+        }
+
+        .banner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .banner-header h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .banner-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .banner-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .banner-details .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .banner-details .detail-item span:first-child {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .banner-details .detail-item span:last-child {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .banner-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .page-item {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .page-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .page-icon {
+            width: 50px;
+            height: 50px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .page-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .page-details p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .page-url {
+            font-size: 12px;
+            color: #3b82f6;
+            background: #dbeafe;
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+
+        .page-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .page-stats .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .page-stats .stat-item span:first-child {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .page-stats .stat-item span:last-child {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .page-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .banners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .page-stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .banner-actions,
+            .page-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html> 
